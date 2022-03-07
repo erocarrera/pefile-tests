@@ -31,6 +31,7 @@ from hashlib import sha256
 from io import open
 
 import pefile
+# do not truncate outputs
 pefile.MAX_SECTIONS = 128000
 
 
