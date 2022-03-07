@@ -35,26 +35,26 @@ import pefile
 # do not truncate outputs
 pefile.MAX_SECTIONS = 128000
 
-REGRESSION_TESTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
-POCS_TESTS_DIR = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), "corkami/pocs"
-)
+
+here = os.path.abspath(__file__)
+test_dir = os.path.dirname(here)
+REGRESSION_TESTS_DIR = os.path.join(test_dir, "data")
+POCS_TESTS_DIR = os.path.join(test_dir, "corkami/pocs")
 
 
 def _load_test_files():
-    """Load all the test files to be processed"""
+    """Yield all the test files"""
 
-    test_files = list()
-
+    not_pes = ".dmp", ".ABOUT", "empty_file",
     for dirpath, _dirname, filenames in os.walk(REGRESSION_TESTS_DIR):
-        for filename in (f for f in filenames if not f.endswith((".dmp", ".ABOUT",))):
-            test_files.append(os.path.join(dirpath, filename))
+        for filename in filenames:
+            if not filename.endswith(not_pes):
+                yield os.path.join(dirpath, filename)
 
     for dirpath, _dirname, filenames in os.walk(POCS_TESTS_DIR):
-        for filename in (f for f in filenames if not f.endswith((".dmp", ".ABOUT",))):
-            test_files.append(os.path.join(dirpath, filename))
-
-    return test_files
+        for filename in filenames:
+            if not filename.endswith(not_pes):
+                yield os.path.join(dirpath, filename)
 
 
 @pytest.mark.parametrize(
