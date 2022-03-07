@@ -19,6 +19,6 @@ Many thanks to @angea !
 1. Ensure that you are in a virtualenv and have pefile installed
    (either from Pypi or a local clone) 
    
-2. Install pytest: `pip install pytest`
+2. Install pytest: `pip install -e .[testing]`
 
-2. run the tests: `pytest tests`
+2. run the tests on 6 CPUs: `pytest -vvs -n6 tests`
