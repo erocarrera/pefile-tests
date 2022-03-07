@@ -303,8 +303,8 @@ SHA-512 hash: 086b62d039decc86819d4c09fe8d3cdf2416207b20bc67495e2ca8107888138120
     FileDescription: LibIconv: convert between character encodings
     FileVersion: 1.9.2.1519
     InternalName: libiconv2
-    LegalCopyright: © 2004 Free Software Foundation <www.fsf.org>
-    LegalTrademarks: GNU®, LibIconv®, libiconv2®
+    LegalCopyright: \xc2\xa9 2004 Free Software Foundation <www.fsf.org>
+    LegalTrademarks: GNU\xc2\xae, LibIconv\xc2\xae, libiconv2\xc2\xae
     LibToolFileVersion: 4:0:2
     License: This program is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License;see www.gnu.org/copyleft/lesser.html.
     OriginalFilename: libiconv2.dll
@@ -339,15 +339,15 @@ SHA-512 hash: 086b62d039decc86819d4c09fe8d3cdf2416207b20bc67495e2ca8107888138120
 0xD9224    0x24  AddressOfNameOrdinals:         0xDC070   
 
 Ordinal      RVA         Name
-1          0x000D8E50h    DllGetVersion
-2          0x000DA000h    _libiconv_version
-3          0x000CA8A0h    libiconv
-4          0x000CA900h    libiconv_close
-5          0x000CA4B0h    libiconv_open
-6          0x000D9090h    libiconv_set_relocation_prefix
-7          0x000CA920h    libiconvctl
-8          0x000CA9E0h    libiconvlist
-9          0x000D8FC0h    locale_charset
+1          0x000D8E50    DllGetVersion
+2          0x000DA000    _libiconv_version
+3          0x000CA8A0    libiconv
+4          0x000CA900    libiconv_close
+5          0x000CA4B0    libiconv_open
+6          0x000D9090    libiconv_set_relocation_prefix
+7          0x000CA920    libiconvctl
+8          0x000CA9E0    libiconvlist
+9          0x000D8FC0    locale_charset
 
 ----------Imported symbols----------
 

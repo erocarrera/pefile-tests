@@ -309,12 +309,10 @@ Type: IMAGE_DEBUG_TYPE_CODEVIEW
 
     [CV_INFO_PDB70]
     0x249A4    0x0   CvSignature:                   0x53445352
-    0x249A8    0x4   Signature_Data1:               0x11F725C 
-    0x249AC    0x8   Signature_Data2:               0x46CD    
-    0x249AE    0xA   Signature_Data3:               0x4C9B    
-    0x249B0    0xC   Signature_Data4:               0x5795    
-    0x249B2    0xE   Signature_Data5:               0xB011    
-    0x249B4    0x10  Signature_Data6:               0x9466E05C
+    0x249A8    0x4   Signature_Data1:               11F725C 
+    0x249AC    0x8   Signature_Data2:               46CD    
+    0x249AE    0xA   Signature_Data3:               4C9B    
+    0x249B0    0xC   Signature_Data4:               955711B05CE06694
     0x249B8    0x14  Age:                           0x1       
     0x249BC    0x18  PdbFileName:                   d:\temp\tmp5E15\Source.Silverlight\obj\Release\Moq.Silverlight.pdb
 

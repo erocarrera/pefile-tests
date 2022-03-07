@@ -173,3 +173,19 @@ kernel32.dll.ExitProcess Hint[0]
 
 msvcrt.dll.printf Hint[0]
 
+----------Unwind data for exception handling----------
+
+[RUNTIME_FUNCTION]
+0x370      0x0   BeginAddress:                  0x1090    
+0x374      0x4   EndAddress:                    0x109D    
+0x378      0x8   UnwindData:                    0x117C    
+    [UNWIND_INFO]
+    0x37C      0x0   Version:                       0x1       
+    0x37C      0x0   Flags:                         0x1       
+    0x37D      0x1   SizeOfProlog:                  0x0       
+    0x37E      0x2   CountOfCodes:                  0x0       
+    0x37F      0x3   FrameRegister:                 0x0       
+    0x37F      0x3   FrameOffset:                   0x0       
+    0x380      0x4   ExceptionHandler:              0x1000    
+    Flags: UNW_FLAG_EHANDLER
+    Unwind codes: 

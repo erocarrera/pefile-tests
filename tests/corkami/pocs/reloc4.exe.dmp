@@ -4,7 +4,7 @@ Byte 0x00 makes up 67.7734% of the file's contents. This may indicate truncation
 
 Suspicious flags set for section 0. Both IMAGE_SCN_MEM_WRITE and IMAGE_SCN_MEM_EXECUTE are set. This might indicate a packed executable.
 
-Overlapping offsets in relocation data data at RVA: 0x1000
+Overlapping offsets in relocation data at RVA: 0x1000
 
 ----------DOS_HEADER----------
 

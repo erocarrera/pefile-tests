@@ -214,13 +214,13 @@ SHA-512 hash: 5ed6d72eece116b91d523220068d96e880245956b89c5917c7aa6ddfbf87678bdc
 0x1FE4     0x24  AddressOfNameOrdinals:         0x2EA0    
 
 Ordinal      RVA         Name
-0          0x00002E30h    ExitProcess forwarder: standard.LoopHere
-1          0x00002E42h    LoopHere forwarder: standard.LoopOnceAgain
-2          0x00002E59h    LoopOnceAgain forwarder: msvcrt.printf
-3          0x00002E67h    GroundHogDay forwarder: standard.GroundHogDay
-4          0x00002E8Bh    Ying forwarder: standard.Yang
-5          0x00002E7Dh    Yang forwarder: standard.Ying
-6          0x00002AA1h    export
+0          0x00002E30    ExitProcess forwarder: standard.LoopHere
+1          0x00002E42    LoopHere forwarder: standard.LoopOnceAgain
+2          0x00002E59    LoopOnceAgain forwarder: msvcrt.printf
+3          0x00002E67    GroundHogDay forwarder: standard.GroundHogDay
+4          0x00002E8B    Ying forwarder: standard.Yang
+5          0x00002E7D    Yang forwarder: standard.Ying
+6          0x00002AA1    export
 
 ----------Imported symbols----------
 

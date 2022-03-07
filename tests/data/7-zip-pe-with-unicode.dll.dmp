@@ -295,10 +295,10 @@ SHA-512 hash: 38d44a763c0f46d5d6f6ff434683b022123afdf7d0a2752de3abe1a960d61b9eb0
 0x9934     0x24  AddressOfNameOrdinals:         0xAB58    
 
 Ordinal      RVA         Name
-1          0x0000512Ah    DllCanUnloadNow
-2          0x00005136h    DllGetClassObject
-3          0x00005282h    DllRegisterServer
-4          0x000054BAh    DllUnregisterServer
+1          0x0000512A    DllCanUnloadNow
+2          0x00005136    DllGetClassObject
+3          0x00005282    DllRegisterServer
+4          0x000054BA    DllUnregisterServer
 
 ----------Imported symbols----------
 

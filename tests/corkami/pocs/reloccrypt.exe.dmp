@@ -6,7 +6,7 @@ Byte 0x10 makes up 28.2715% of the file's contents. This may indicate truncation
 
 Suspicious flags set for section 0. Both IMAGE_SCN_MEM_WRITE and IMAGE_SCN_MEM_EXECUTE are set. This might indicate a packed executable.
 
-Overlapping offsets in relocation data data at RVA: 0x1142
+Overlapping offsets in relocation data at RVA: 0x1142
 
 Invalid relocation information. SizeOfBlock too large: 66813964
 

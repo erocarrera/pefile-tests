@@ -170,12 +170,12 @@ SHA-512 hash: 6746bf8c41d555c9ab07b273f5994ba6cb212272f3d8ba3182e2a3254d7ee55da2
 0x334      0x24  AddressOfNameOrdinals:         0x11E0    
 
 Ordinal      RVA         Name
-0          0xFFFFFFFFh    szDosHeader
-1          0x00001000h    EntryPoint
-2          0x00001050h    Imports
-3          0x00001110h    None
-4          0x000010D0h    None
-5          0x00000400h    None
+0          0xFFFFFFFF    szDosHeader
+1          0x00001000    EntryPoint
+2          0x00001050    Imports
+3          0x00001110    None
+4          0x000010D0    None
+5          0x00000400    None
 
 ----------Imported symbols----------
 

@@ -24,7 +24,7 @@ Error parsing the import table. Invalid data at RVA: 0x6c6c642e
 
 Damaged Import Table information. ILT and/or IAT appear to be broken. OriginalFirstThunk: 0x6c6c642e FirstThunk: 0x0
 
-Too may errors parsing the import directory. Invalid import data at RVA: 0x111c
+Too many errors parsing the import directory. Invalid import data at RVA: 0x111c
 
 ----------DOS_HEADER----------
 

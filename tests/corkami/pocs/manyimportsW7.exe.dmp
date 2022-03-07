@@ -30,7 +30,7 @@ Error parsing the import table. AddressOfData overlaps with THUNK_DATA for THUNK
 
 Error parsing the import table. AddressOfData overlaps with THUNK_DATA for THUNK at RVA 0x11c0
 
-Too may errors parsing the import directory. Invalid import data at RVA: 0x11c4
+Too many errors parsing the import directory. Invalid import data at RVA: 0x11c4
 
 ----------DOS_HEADER----------
 

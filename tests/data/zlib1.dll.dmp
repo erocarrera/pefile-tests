@@ -323,8 +323,8 @@ SHA-512 hash: b2b699e5e3a33ef409e89f3fd75e93b1b2e2884a396bbc4b7e887487df5ced3fc8
     FileDescription: Zlib1: general purpose data compression / decompression library
     FileVersion: 1.2.3.2532
     InternalName: zlib1
-    LegalCopyright: © 2006 Jean-loup Gailly <jloup@gzip.org >, Mark Adler <madler@alumni.caltech.edu>
-    LegalTrademarks: GnuWin32®, Zlib®, zlib1®
+    LegalCopyright: \xc2\xa9 2006 Jean-loup Gailly <jloup@gzip.org >, Mark Adler <madler@alumni.caltech.edu>
+    LegalTrademarks: GnuWin32\xc2\xae, Zlib\xc2\xae, zlib1\xc2\xae
     LibToolFileVersion: 4:2:3
     License: (C) 1995-2002 Jean-loup Gailly and Mark Adler This software is provided 'as-is', without any express or implied warranty. In no event will the authors be held liable for any damages arising from the use of this software. Permission is granted to anyone to use this software for any purpose, including commercial applications, and to alter it and redistribute it freely, subject to the following restrictions: 1. The origin of this software must not be misrepresented; you must not claim that you wrote the original software. If you use this software in a product, an acknowledgment in the product documentation would be appreciated but is not required. 2. Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software. 3. This notice may not be removed or altered from any source distribution. Jean-loup Gailly Mark Adler jloup@gzip.org madler@alumni.caltech.edu 
     OriginalFilename: zlib1.dll
@@ -360,66 +360,66 @@ SHA-512 hash: b2b699e5e3a33ef409e89f3fd75e93b1b2e2884a396bbc4b7e887487df5ced3fc8
 0xFC24     0x24  AddressOfNameOrdinals:         0x14208   
 
 Ordinal      RVA         Name
-1          0x0000B6A0h    DllGetVersion
-2          0x000011D0h    adler32
-3          0x0000142Ch    adler32_combine
-4          0x0000156Ch    compress
-5          0x000014C0h    compress2
-6          0x0000158Ch    compressBound
-7          0x000015A8h    crc32
-8          0x000017D8h    crc32_combine
-9          0x00003844h    deflate
-10         0x00003804h    deflateBound
-11         0x00004588h    deflateCopy
-12         0x00003520h    deflateEnd
-13         0x0000487Ch    deflateInit2_
-14         0x00004AF4h    deflateInit_
-15         0x00004490h    deflateParams
-16         0x0000378Ch    deflatePrime
-17         0x0000471Ch    deflateReset
-18         0x0000360Ch    deflateSetDictionary
-19         0x00003760h    deflateSetHeader
-20         0x000037C4h    deflateTune
-21         0x000015A0h    get_crc_table
-22         0x00003440h    gzclearerr
-23         0x00003188h    gzclose
-24         0x00003170h    gzdirect
-25         0x00002384h    gzdopen
-26         0x00003144h    gzeof
-27         0x00003300h    gzerror
-28         0x00002D0Ch    gzflush
-29         0x00002A84h    gzgetc
-30         0x00002B08h    gzgets
-31         0x000023BCh    gzopen
-32         0x00002C3Ch    gzprintf
-33         0x00002CACh    gzputc
-34         0x00002CE4h    gzputs
-35         0x000023D4h    gzread
-36         0x00002E24h    gzrewind
-37         0x00002EBCh    gzseek
-38         0x00001960h    gzsetparams
-39         0x0000312Ch    gztell
-40         0x00002AB4h    gzungetc
-41         0x00002B70h    gzwrite
-42         0x00007EACh    inflate
-43         0x00009CB4h    inflateBack
-44         0x0000AAF4h    inflateBackEnd
-45         0x00009BE0h    inflateBackInit_
-46         0x00009A98h    inflateCopy
-47         0x0000961Ch    inflateEnd
-48         0x000098B0h    inflateGetHeader
-49         0x00007DB4h    inflateInit2_
-50         0x00007E90h    inflateInit_
-51         0x00007D64h    inflatePrime
-52         0x00007CD0h    inflateReset
-53         0x00009678h    inflateSetDictionary
-54         0x000098E4h    inflateSync
-55         0x00009A6Ch    inflateSyncPoint
-60         0x0000B1E0h    inflate_fast
-56         0x00003470h    uncompress
-57         0x00007C90h    zError
-58         0x00007C88h    zlibCompileFlags
-59         0x00007C80h    zlibVersion
+1          0x0000B6A0    DllGetVersion
+2          0x000011D0    adler32
+3          0x0000142C    adler32_combine
+4          0x0000156C    compress
+5          0x000014C0    compress2
+6          0x0000158C    compressBound
+7          0x000015A8    crc32
+8          0x000017D8    crc32_combine
+9          0x00003844    deflate
+10         0x00003804    deflateBound
+11         0x00004588    deflateCopy
+12         0x00003520    deflateEnd
+13         0x0000487C    deflateInit2_
+14         0x00004AF4    deflateInit_
+15         0x00004490    deflateParams
+16         0x0000378C    deflatePrime
+17         0x0000471C    deflateReset
+18         0x0000360C    deflateSetDictionary
+19         0x00003760    deflateSetHeader
+20         0x000037C4    deflateTune
+21         0x000015A0    get_crc_table
+22         0x00003440    gzclearerr
+23         0x00003188    gzclose
+24         0x00003170    gzdirect
+25         0x00002384    gzdopen
+26         0x00003144    gzeof
+27         0x00003300    gzerror
+28         0x00002D0C    gzflush
+29         0x00002A84    gzgetc
+30         0x00002B08    gzgets
+31         0x000023BC    gzopen
+32         0x00002C3C    gzprintf
+33         0x00002CAC    gzputc
+34         0x00002CE4    gzputs
+35         0x000023D4    gzread
+36         0x00002E24    gzrewind
+37         0x00002EBC    gzseek
+38         0x00001960    gzsetparams
+39         0x0000312C    gztell
+40         0x00002AB4    gzungetc
+41         0x00002B70    gzwrite
+42         0x00007EAC    inflate
+43         0x00009CB4    inflateBack
+44         0x0000AAF4    inflateBackEnd
+45         0x00009BE0    inflateBackInit_
+46         0x00009A98    inflateCopy
+47         0x0000961C    inflateEnd
+48         0x000098B0    inflateGetHeader
+49         0x00007DB4    inflateInit2_
+50         0x00007E90    inflateInit_
+51         0x00007D64    inflatePrime
+52         0x00007CD0    inflateReset
+53         0x00009678    inflateSetDictionary
+54         0x000098E4    inflateSync
+55         0x00009A6C    inflateSyncPoint
+60         0x0000B1E0    inflate_fast
+56         0x00003470    uncompress
+57         0x00007C90    zError
+58         0x00007C88    zlibCompileFlags
+59         0x00007C80    zlibVersion
 
 ----------Imported symbols----------
 

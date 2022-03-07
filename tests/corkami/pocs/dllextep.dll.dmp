@@ -168,7 +168,7 @@ SHA-512 hash: 64612d0266f15257d9c62be3e65d7efca830e6dbb824dd9c6a8e423303b65f0873
 0x2C8      0x24  AddressOfNameOrdinals:         0x1100    
 
 Ordinal      RVA         Name
-0          0x00001008h    export
+0          0x00001008    export
 
 ----------Imported symbols----------
 

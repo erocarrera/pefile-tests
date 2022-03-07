@@ -168,5 +168,5 @@ SHA-512 hash: 75af8ba0ac568b924ed915240a56f9b748c59c5a885c706f28822bff95ab2f0afa
 0x22C      0x24  AddressOfNameOrdinals:         0x1070    
 
 Ordinal      RVA         Name
-0          0x00001060h    ExitProcess forwarder: msvcrt.printf
+0          0x00001060    ExitProcess forwarder: msvcrt.printf
 

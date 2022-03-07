@@ -168,7 +168,7 @@ SHA-512 hash: 313316dc45447fcd27a2d0c6c91bf0d24cdb0b82c30dfb4baae9ee6fe5074082db
 0x424      0x24  AddressOfNameOrdinals:         0x1244    
 
 Ordinal      RVA         Name
-0          0x00001024h    cfgdup
+0          0x00001024    cfgdup
 
 ----------Imported symbols----------
 

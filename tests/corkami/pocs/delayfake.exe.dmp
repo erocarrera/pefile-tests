@@ -6,10 +6,6 @@ Suspicious flags set for section 0. Both IMAGE_SCN_MEM_WRITE and IMAGE_SCN_MEM_E
 
 Imported symbols contain entries typical of packed executables.
 
-Error parsing the import table. Invalid data at RVA: 0x401100
-
-Error parsing the Delay import directory. Invalid import data at RVA: 0x1150 (Invalid entries, aborting parsing.)
-
 ----------DOS_HEADER----------
 
 [IMAGE_DOS_HEADER]
@@ -171,4 +167,18 @@ SHA-512 hash: d11a4ab97a9cb9862323014585f538d3d23048e500fde525b70de87a47406bbffd
 kernel32.dll.ExitProcess Hint[0]
 kernel32.dll.LoadLibraryA Hint[0]
 kernel32.dll.GetProcAddress Hint[0]
+
+----------Delay Imported symbols----------
+
+[IMAGE_DELAY_IMPORT_DESCRIPTOR]
+0x330      0x0   grAttrs:                       0x0       
+0x334      0x4   szName:                        0x1050    
+0x338      0x8   phmod:                         0x0       
+0x33C      0xC   pIAT:                          0x1170    
+0x340      0x10  pINT:                          0x1100    
+0x344      0x14  pBoundIAT:                     0x0       
+0x348      0x18  pUnloadIAT:                    0x0       
+0x34C      0x1C  dwTimeStamp:                   0x0        [Thu Jan  1 00:00:00 1970 UTC]
+
+fake.dll.fake Hint[0] Bound: 0x000011A0
 

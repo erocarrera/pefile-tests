@@ -303,8 +303,8 @@ SHA-512 hash: d0e2f3ccbef25c57618a043f1599563af2cd40b6b8dabad9b0d494ec1b1a0e4f36
     FileDescription: GetText: library and tools for native language support
     FileVersion: 0.14.4.1952
     InternalName: libintl3
-    LegalCopyright: © 2005 Free Software Foundation <www.fsf.org>
-    LegalTrademarks: GNU®, GetText®, libintl3®
+    LegalCopyright: \xc2\xa9 2005 Free Software Foundation <www.fsf.org>
+    LegalTrademarks: GNU\xc2\xae, GetText\xc2\xae, libintl3\xc2\xae
     LibToolFileVersion: 7:0:4
     License: This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License;see www.gnu.org/copyleft/gpl.html.
     OriginalFilename: libintl3.dll
@@ -340,72 +340,72 @@ SHA-512 hash: d0e2f3ccbef25c57618a043f1599563af2cd40b6b8dabad9b0d494ec1b1a0e4f36
 0x15E24    0x24  AddressOfNameOrdinals:         0x19238   
 
 Ordinal      RVA         Name
-1          0x00001180h    DllGetVersion
-2          0x00002E20h    _nl_expand_alias
-3          0x00003DA0h    _nl_explode_name
-4          0x00001680h    _nl_find_domain
-5          0x00004120h    _nl_find_language
-6          0x000049A0h    _nl_find_msg
-7          0x00002A40h    _nl_free_domain_conv
-8          0x00001930h    _nl_init_domain_conv
-9          0x00006A80h    _nl_language_preferences_default
-10         0x00001A90h    _nl_load_domain
-11         0x00007DD0h    _nl_locale_name
-12         0x00007010h    _nl_locale_name_default
-13         0x00007DC0h    _nl_locale_name_posix
-14         0x00007E50h    _nl_log_untranslated
-15         0x00003520h    _nl_make_l10nflist
-16         0x00018670h    _nl_msg_cat_cntr
-17         0x00003BE0h    _nl_normalize_codeset
-18         0x0000BC60h    bind_textdomain_codeset
-19         0x0000BC50h    bindtextdomain
-20         0x0000BC00h    dcgettext
-21         0x0000BC30h    dcngettext
-22         0x0000BBF0h    dgettext
-23         0x0000BC20h    dngettext
-24         0x0000BBE0h    gettext
-25         0x000093F0h    libintl_asprintf
-26         0x00001290h    libintl_bind_textdomain_codeset
-27         0x000011C0h    libintl_bindtextdomain
-28         0x000015E0h    libintl_dcgettext
-29         0x00004380h    libintl_dcigettext
-30         0x00005190h    libintl_dcngettext
-31         0x00001620h    libintl_dgettext
-32         0x000051D0h    libintl_dngettext
-33         0x00009180h    libintl_fprintf
-34         0x0000A270h    libintl_fwprintf
-35         0x00001650h    libintl_gettext
-36         0x00006270h    libintl_gettext_extract_plural
-37         0x00005E90h    libintl_gettext_free_exp
-38         0x00017010h    libintl_gettext_germanic_plural
-39         0x00005520h    libintl_gettextparse
-40         0x00005210h    libintl_ngettext
-41         0x00017000h    libintl_nl_current_default_domain
-42         0x00004170h    libintl_nl_default_default_domain
-43         0x00004190h    libintl_nl_default_dirname
-44         0x00018690h    libintl_nl_domain_bindings
-45         0x000091E0h    libintl_printf
-46         0x00006680h    libintl_relocate
-47         0x00006580h    libintl_set_relocation_prefix
-48         0x00009380h    libintl_snprintf
-49         0x00009290h    libintl_sprintf
-50         0x0000A3C0h    libintl_swprintf
-51         0x00003470h    libintl_textdomain
-52         0x00008390h    libintl_vasnprintf
-53         0x00009420h    libintl_vasnwprintf
-54         0x000093B0h    libintl_vasprintf
-55         0x000090D0h    libintl_vfprintf
-56         0x0000A1C0h    libintl_vfwprintf
-57         0x000091B0h    libintl_vprintf
-58         0x000092C0h    libintl_vsnprintf
-59         0x00009200h    libintl_vsprintf
-60         0x0000A2F0h    libintl_vswprintf
-61         0x0000A2A0h    libintl_vwprintf
-62         0x0000A2D0h    libintl_wprintf
-63         0x000064B0h    locale_charset
-64         0x0000BC10h    ngettext
-65         0x00018680h    st_flags
-66         0x0000BC40h    textdomain
+1          0x00001180    DllGetVersion
+2          0x00002E20    _nl_expand_alias
+3          0x00003DA0    _nl_explode_name
+4          0x00001680    _nl_find_domain
+5          0x00004120    _nl_find_language
+6          0x000049A0    _nl_find_msg
+7          0x00002A40    _nl_free_domain_conv
+8          0x00001930    _nl_init_domain_conv
+9          0x00006A80    _nl_language_preferences_default
+10         0x00001A90    _nl_load_domain
+11         0x00007DD0    _nl_locale_name
+12         0x00007010    _nl_locale_name_default
+13         0x00007DC0    _nl_locale_name_posix
+14         0x00007E50    _nl_log_untranslated
+15         0x00003520    _nl_make_l10nflist
+16         0x00018670    _nl_msg_cat_cntr
+17         0x00003BE0    _nl_normalize_codeset
+18         0x0000BC60    bind_textdomain_codeset
+19         0x0000BC50    bindtextdomain
+20         0x0000BC00    dcgettext
+21         0x0000BC30    dcngettext
+22         0x0000BBF0    dgettext
+23         0x0000BC20    dngettext
+24         0x0000BBE0    gettext
+25         0x000093F0    libintl_asprintf
+26         0x00001290    libintl_bind_textdomain_codeset
+27         0x000011C0    libintl_bindtextdomain
+28         0x000015E0    libintl_dcgettext
+29         0x00004380    libintl_dcigettext
+30         0x00005190    libintl_dcngettext
+31         0x00001620    libintl_dgettext
+32         0x000051D0    libintl_dngettext
+33         0x00009180    libintl_fprintf
+34         0x0000A270    libintl_fwprintf
+35         0x00001650    libintl_gettext
+36         0x00006270    libintl_gettext_extract_plural
+37         0x00005E90    libintl_gettext_free_exp
+38         0x00017010    libintl_gettext_germanic_plural
+39         0x00005520    libintl_gettextparse
+40         0x00005210    libintl_ngettext
+41         0x00017000    libintl_nl_current_default_domain
+42         0x00004170    libintl_nl_default_default_domain
+43         0x00004190    libintl_nl_default_dirname
+44         0x00018690    libintl_nl_domain_bindings
+45         0x000091E0    libintl_printf
+46         0x00006680    libintl_relocate
+47         0x00006580    libintl_set_relocation_prefix
+48         0x00009380    libintl_snprintf
+49         0x00009290    libintl_sprintf
+50         0x0000A3C0    libintl_swprintf
+51         0x00003470    libintl_textdomain
+52         0x00008390    libintl_vasnprintf
+53         0x00009420    libintl_vasnwprintf
+54         0x000093B0    libintl_vasprintf
+55         0x000090D0    libintl_vfprintf
+56         0x0000A1C0    libintl_vfwprintf
+57         0x000091B0    libintl_vprintf
+58         0x000092C0    libintl_vsnprintf
+59         0x00009200    libintl_vsprintf
+60         0x0000A2F0    libintl_vswprintf
+61         0x0000A2A0    libintl_vwprintf
+62         0x0000A2D0    libintl_wprintf
+63         0x000064B0    locale_charset
+64         0x0000BC10    ngettext
+65         0x00018680    st_flags
+66         0x0000BC40    textdomain
 
 ----------Imported symbols----------
 

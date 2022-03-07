@@ -201,12 +201,10 @@ Type: IMAGE_DEBUG_TYPE_CODEVIEW
 
     [CV_INFO_PDB70]
     0x2A0      0x0   CvSignature:                   0x53445352
-    0x2A4      0x4   Signature_Data1:               0x0       
-    0x2A8      0x8   Signature_Data2:               0x0       
-    0x2AA      0xA   Signature_Data3:               0x0       
-    0x2AC      0xC   Signature_Data4:               0x0       
-    0x2AE      0xE   Signature_Data5:               0x0       
-    0x2B0      0x10  Signature_Data6:               0x0       
+    0x2A4      0x4   Signature_Data1:               0       
+    0x2A8      0x8   Signature_Data2:               0       
+    0x2AA      0xA   Signature_Data3:               0       
+    0x2AC      0xC   Signature_Data4:               
     0x2B4      0x14  Age:                           0x60      
     0x2B8      0x18  PdbFileName:                   nosymbols.pdb
 

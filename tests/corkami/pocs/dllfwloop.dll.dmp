@@ -168,10 +168,10 @@ SHA-512 hash: f40c0b6c808db86a697de8694d13b06ef5ce6719161687153cf1f238c0139ef812
 0x22C      0x24  AddressOfNameOrdinals:         0x10F0    
 
 Ordinal      RVA         Name
-0          0x00001080h    ExitProcess forwarder: dllfwloop.LoopHere
-1          0x00001093h    LoopHere forwarder: dllfwloop.LoopOnceAgain
-2          0x000010ABh    LoopOnceAgain forwarder: msvcrt.printf
-3          0x000010B9h    GroundHogDay forwarder: dllfwloop.GroundHogDay
-4          0x000010DFh    Ying forwarder: dllfwloop.Yang
-5          0x000010D0h    Yang forwarder: dllfwloop.Ying
+0          0x00001080    ExitProcess forwarder: dllfwloop.LoopHere
+1          0x00001093    LoopHere forwarder: dllfwloop.LoopOnceAgain
+2          0x000010AB    LoopOnceAgain forwarder: msvcrt.printf
+3          0x000010B9    GroundHogDay forwarder: dllfwloop.GroundHogDay
+4          0x000010DF    Ying forwarder: dllfwloop.Yang
+5          0x000010D0    Yang forwarder: dllfwloop.Ying
 

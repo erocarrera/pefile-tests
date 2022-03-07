@@ -139,7 +139,7 @@ DllCharacteristics:
 0x2B9      0x24  AddressOfNameOrdinals:         0x2F0     
 
 Ordinal      RVA         Name
-0          0x00000114h    export
+0          0x00000114    export
 
 ----------TLS----------
 
