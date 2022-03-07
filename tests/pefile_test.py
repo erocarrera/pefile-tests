@@ -40,6 +40,7 @@ here = os.path.abspath(__file__)
 test_dir = os.path.dirname(here)
 REGRESSION_TESTS_DIR = os.path.join(test_dir, "data")
 POCS_TESTS_DIR = os.path.join(test_dir, "corkami/pocs")
+LIEF_TESTS_DIR = os.path.join(test_dir, "lief-samples-PE")
 
 
 def _load_test_files():
@@ -52,6 +53,11 @@ def _load_test_files():
                 yield os.path.join(dirpath, filename)
 
     for dirpath, _dirname, filenames in os.walk(POCS_TESTS_DIR):
+        for filename in filenames:
+            if not filename.endswith(not_pes):
+                yield os.path.join(dirpath, filename)
+
+    for dirpath, _dirname, filenames in os.walk(LIEF_TESTS_DIR):
         for filename in filenames:
             if not filename.endswith(not_pes):
                 yield os.path.join(dirpath, filename)
