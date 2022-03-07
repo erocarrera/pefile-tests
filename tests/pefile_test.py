@@ -23,17 +23,18 @@
 # SOFTWARE.
 
 
-from __future__ import print_function
-
-from builtins import range
 import difflib
-from hashlib import sha256
 import os
 import unittest
+
+from hashlib import sha256
 from io import open
 
 import pefile
+pefile.MAX_SECTIONS = 128000
 
+
+REGEN = True
 
 REGRESSION_TESTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data')
 POCS_TESTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'corkami/pocs')
@@ -47,9 +48,9 @@ class Test_pefile(unittest.TestCase):
         self.test_files = self._load_test_files()
 
     def _load_test_files(self):
-        """Load all the test files to be processes"""
+        """Load all the test files to be processed"""
 
-        test_files = []
+        test_files = list()
 
         for dirpath, dirname, filenames in os.walk(REGRESSION_TESTS_DIR):
             for filename in (f for f in filenames if not f.endswith('.dmp')):
@@ -63,32 +64,38 @@ class Test_pefile(unittest.TestCase):
 
     def test_pe_image_regression_test(self):
         """Run through all the test files and make sure they run correctly"""
+
+        failed = False
         for idx, pe_filename in enumerate(self.test_files):
+            if pe_filename.endswith('fake_PE_no_read_permissions_issue_53'):
+                continue
             if pe_filename.endswith('empty_file'):
                 continue
 
             try:
                 pe = pefile.PE(pe_filename)
                 pe_file_data = pe.dump_info()
-                pe.dump_dict()
+                pe.dump_dict() # Make sure that it does not fail
                 pe_file_data = pe_file_data.replace('\n\r', '\n')
             except Exception as excp:
-                print('Failed processing [%s]' % os.path.basename(pe_filename))
-                raise
+                print('Failed processing [%s] (%s)' % (os.path.basename(pe_filename), excp))
+                failed = True
+                continue
 
             control_data_filename = '%s.dmp' % pe_filename
 
-            if not os.path.exists(control_data_filename):
+            if REGEN or not os.path.exists(control_data_filename):
                 print((
                     'Could not find control data file [%s]. '
                     'Assuming first run and generating...') % (
                     os.path.basename(control_data_filename)))
-                with open(control_data_filename, 'wb') as control_data_f:
-                    control_data_f.write(pe_file_data.encode('utf-8', 'backslashreplace'))
+                control_data_f = open(control_data_filename, 'wb')
+                control_data_f.write(pe_file_data.encode('utf-8', 'backslashreplace'))
                 continue
 
-            with open(control_data_filename, 'rb') as control_data_f:
-                control_data = control_data_f.read()
+            control_data_f = open(control_data_filename, 'rb')
+            control_data = control_data_f.read()
+            control_data_f.close()
 
             pe_file_data_hash = sha256(pe_file_data.encode('utf-8', 'backslashreplace')).hexdigest()
             control_data_hash = sha256(control_data).hexdigest()
@@ -98,16 +105,20 @@ class Test_pefile(unittest.TestCase):
             lines_to_ignore = 0
 
             if control_data_hash != pe_file_data_hash:
-                print('Hash differs for [%s]' % os.path.basename(pe_filename))
+                print('\nHash differs for [%s]' % os.path.basename(pe_filename))
 
-                diff = difflib.ndiff(
-                    control_data.decode('utf-8').splitlines(), pe_file_data.splitlines())
+                control_file_lines = [
+                    l for l in control_data.decode('utf-8').splitlines()]
+                pefile_lines = pe_file_data.splitlines()
+
+                diff = difflib.ndiff(control_file_lines, pefile_lines)
+
                 # check the diff
                 for line in diff:
                     # Count all changed lines
                     if line.startswith('+ '):
                         diff_lines_added_count += 1
-                        # Window's returns slightly different date strings,
+                        # Windows returns slightly different date strings,
                         # ignore those.
                         if 'TimeDateStamp' in line:
                             lines_to_ignore += 1
@@ -120,26 +131,36 @@ class Test_pefile(unittest.TestCase):
                         if 'TimeDateStamp' in line:
                             lines_to_ignore += 1
 
+
                 if (diff_lines_removed_count == diff_lines_added_count and
                     lines_to_ignore ==
                         diff_lines_removed_count + diff_lines_added_count):
-                    print('Differences are in TimeDateStamp formatting, ignoring...')
+                    print (
+                        'Differences are in TimeDateStamp formatting, '
+                        'ignoring...')
 
                 else:
-                    print('Lines added: %d, lines removed: %d, lines with TimeDateStamp: %d' % (
-                        diff_lines_added_count, diff_lines_removed_count, lines_to_ignore))
+                    print (
+                        'Lines added: %d, lines removed: %d, lines with '
+                        'TimeDateStamp: %d' % (
+                        diff_lines_added_count, diff_lines_removed_count,
+                        lines_to_ignore))
 
                     # Do the diff again to store it for analysis.
-                    diff = difflib.unified_diff(
-                        control_data.decode('utf-8').splitlines(), pe_file_data.splitlines())
-                    with open('error_diff.txt', 'ab') as error_diff_f:
-                        error_diff_f.write(
-                            b'\n________________________________________\n')
-                        error_diff_f.write(
-                            'Errors for file "{0}":\n'.format(pe_filename).encode('utf-8', 'backslashreplace'))
-                        error_diff_f.write(
-                            '\n'.join([l for l in diff if not l.startswith(' ')]).encode('utf-8', 'backslashreplace'))
+                    diff = list(difflib.unified_diff(
+                        control_file_lines, pefile_lines,
+                        fromfile="expected", tofile="new"))
+                    error_diff_f = open('error_diff.txt', 'ab')
+                    error_diff_f.write(
+                        b'\n________________________________________\n')
+                    error_diff_f.write(
+                        'Errors for file "{0}":\n'.format(pe_filename).encode('utf-8', 'backslashreplace'))
+                    error_diff_f.write(
+                        '\n'.join([l for l in diff if not l.startswith(' ')]).encode('utf-8', 'backslashreplace'))
+                    error_diff_f.close()
+                    print('\n'.join(diff))
                     print('Diff saved to: error_diff.txt')
+                    failed = True
 
             if diff_lines_removed_count == 0:
                 try:
@@ -151,6 +172,9 @@ class Test_pefile(unittest.TestCase):
 
             os.sys.stdout.write('[%d]' % (len(self.test_files) - idx))
             os.sys.stdout.flush()
+        if failed:
+            raise AssertionError("One or more errors occured")
+
 
     def test_selective_loading_integrity(self):
         """Verify integrity of loading the separate elements of the file as
@@ -160,7 +184,7 @@ class Test_pefile(unittest.TestCase):
         control_file = os.path.join(REGRESSION_TESTS_DIR, 'MSVBVM60.DLL')
         pe = pefile.PE(control_file, fast_load=True)
         # Load the 16 directories.
-        pe.parse_data_directories(directories=list(range(0x10)))
+        pe.parse_data_directories(directories= list(range(0x10)))
 
         # Do it all at once.
         pe_full = pefile.PE(control_file, fast_load=False)
@@ -170,6 +194,7 @@ class Test_pefile(unittest.TestCase):
 
         pe.close()
         pe_full.close()
+
 
     def test_imphash(self):
         """Test imphash values."""
@@ -189,6 +214,7 @@ class Test_pefile(unittest.TestCase):
                 REGRESSION_TESTS_DIR, 'cmd.exe')).get_imphash(),
             'd0058544e4588b1b2290b7f4d830eb0a')
 
+
     def test_write_header_fields(self):
         """Verify correct field data modification."""
 
@@ -205,9 +231,9 @@ class Test_pefile(unittest.TestCase):
         str2 = b'str2'
         str3 = b'string3'
 
-        pe.FileInfo[0].StringTable[0].entries['FileDescription'] = str1
-        pe.FileInfo[0].StringTable[0].entries['FileVersion'] = str2
-        pe.FileInfo[0].StringTable[0].entries['InternalName'] = str3
+        pe.FileInfo[0][0].StringTable[0].entries[b'FileDescription'] = str1
+        pe.FileInfo[0][0].StringTable[0].entries[b'FileVersion'] = str2
+        pe.FileInfo[0][0].StringTable[0].entries[b'InternalName'] = str3
 
         new_data = pe.write()
 
@@ -220,9 +246,11 @@ class Test_pefile(unittest.TestCase):
                 # shorter string, into the space occupied by a longer one.
                 if new_data[idx] != 0:
                     differences.append(chr(new_data[idx]))
+
         # Verify all modifications in the file were the ones we just made
         #
-        self.assertEqual(''.join(differences).encode('utf-8', 'backslashreplace'), str1 + str2 + str3)
+        self.assertEqual(''.join(differences).encode('utf-8', 'backslashreplace'),  str1+str2+str3)
+
         pe.close()
 
     def test_nt_headers_exception(self):
@@ -234,9 +262,10 @@ class Test_pefile(unittest.TestCase):
 
         # Truncate it at the PE header and add invalid data.
         pe_header_offest = pe.DOS_HEADER.e_lfanew
-        corrupted_data = pe.__data__[:pe_header_offest] + b'\0' * (1024 * 10)
+        corrupted_data = pe.__data__[:pe_header_offest] + b'\0' * (1024*10)
 
         self.assertRaises(pefile.PEFormatError, pefile.PE, data=corrupted_data)
+
 
     def test_dos_header_exception_large_data(self):
         """pefile should fail parsing 10KiB of invalid data
@@ -244,11 +273,12 @@ class Test_pefile(unittest.TestCase):
         """
 
         # Generate 10KiB of zeroes
-        data = b'\0' * (1024 * 10)
+        data = b'\0' * (1024*10)
 
         # Attempt to parse data and verify PE header, a PEFormatError exception
         # is thrown.
         self.assertRaises(pefile.PEFormatError, pefile.PE, data=data)
+
 
     def test_dos_header_exception_small_data(self):
         """pefile should fail parsing 64 bytes of invalid data
@@ -262,6 +292,7 @@ class Test_pefile(unittest.TestCase):
         # is thrown.
         self.assertRaises(pefile.PEFormatError, pefile.PE, data=data)
 
+
     def test_empty_file_exception(self):
         """pefile should fail parsing empty files."""
 
@@ -269,8 +300,10 @@ class Test_pefile(unittest.TestCase):
         control_file = os.path.join(REGRESSION_TESTS_DIR, 'empty_file')
         self.assertRaises(pefile.PEFormatError, pefile.PE, control_file)
 
+
     def test_relocated_memory_mapped_image(self):
         """Test different rebasing methods produce the same image"""
+
         # Take a known good file
         control_file = os.path.join(REGRESSION_TESTS_DIR, 'MSVBVM60.DLL')
         pe = pefile.PE(control_file)
@@ -287,6 +320,8 @@ class Test_pefile(unittest.TestCase):
 
         differences_1 = count_differences(original_image_1, rebased_image_1)
         self.assertEqual(differences_1, 61136)
+
+        pe = pefile.PE(control_file)
 
         original_image_2 = pe.get_memory_mapped_image()
         pe.relocate_image(0x1000000)

@@ -7,9 +7,11 @@ from setuptools import setup, find_packages
 
 setup(
     name='pefile-tests',
-    version='0.1',
-    author='Viper authors',
+    version='0.2',
+    author='Viper authors, Philippe Ombredanne and others',
     description='Test suite for pefile',
     url='http://viper.li',
     license='BSD-3-Clause and MIT',
+    install_requires=['pefile'],
+    extras_require={'testing': ['pytest', 'pytest-xdist']},
 )
