@@ -1226,11 +1226,13 @@ DLL: VERSION.dll
 Type: IMAGE_DEBUG_TYPE_CODEVIEW
 
     [CV_INFO_PDB70]
-    0xAD4C     0x0   CvSignature:                   0x53445352
+    0xAD4C     0x0   CvSignature:                   RSDS
     0xAD50     0x4   Signature_Data1:               36CFD5F9
     0xAD54     0x8   Signature_Data2:               888C    
     0xAD56     0xA   Signature_Data3:               4483    
-    0xAD58     0xC   Signature_Data4:               B522B9DB242D8478
+    0xAD58     0xC   Signature_Data4:               B5      
+    0xAD59     0xD   Signature_Data5:               22      
+    0xAD5A     0xE   Signature_Data6:               B9DB242D8478
     0xAD60     0x14  Age:                           0x2       
     0xAD64     0x18  PdbFileName:                   notepad.pdb
 

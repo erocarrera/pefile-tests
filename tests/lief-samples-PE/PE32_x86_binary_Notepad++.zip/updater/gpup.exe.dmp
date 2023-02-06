@@ -622,11 +622,13 @@ WININET.dll.InternetReadFile Hint[159]
 Type: IMAGE_DEBUG_TYPE_CODEVIEW
 
     [CV_INFO_PDB70]
-    0x3A018    0x0   CvSignature:                   0x53445352
+    0x3A018    0x0   CvSignature:                   RSDS
     0x3A01C    0x4   Signature_Data1:               927EDDA0
     0x3A020    0x8   Signature_Data2:               2C53    
     0x3A022    0xA   Signature_Data3:               4782    
-    0x3A024    0xC   Signature_Data4:               BC6B6BFA651FEA5A
+    0x3A024    0xC   Signature_Data4:               BC      
+    0x3A025    0xD   Signature_Data5:               6B      
+    0x3A026    0xE   Signature_Data6:               6BFA651FEA5A
     0x3A02C    0x14  Age:                           0xA       
     0x3A030    0x18  PdbFileName:                   D:\dev\NppPluginManager\gpup\bin\Release\gpup.pdb
 

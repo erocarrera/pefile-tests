@@ -821,11 +821,13 @@ WININET.dll.InternetReadFile Hint[159]
 Type: IMAGE_DEBUG_TYPE_CODEVIEW
 
     [CV_INFO_PDB70]
-    0x53048    0x0   CvSignature:                   0x53445352
+    0x53048    0x0   CvSignature:                   RSDS
     0x5304C    0x4   Signature_Data1:               C26DCA98
     0x53050    0x8   Signature_Data2:               BBE2    
     0x53052    0xA   Signature_Data3:               4489    
-    0x53054    0xC   Signature_Data4:               819832DEA07CD854
+    0x53054    0xC   Signature_Data4:               81      
+    0x53055    0xD   Signature_Data5:               98      
+    0x53056    0xE   Signature_Data6:               32DEA07CD854
     0x5305C    0x14  Age:                           0xA       
     0x53060    0x18  PdbFileName:                   D:\dev\NppPluginManager\pluginManager\bin\Release\PluginManager.pdb
 

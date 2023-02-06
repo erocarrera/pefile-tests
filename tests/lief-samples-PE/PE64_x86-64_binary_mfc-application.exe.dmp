@@ -3480,7 +3480,7 @@ api-ms-win-crt-locale-l1-1-0.dll._configthreadlocale Hint[8]
 0x147C0    0x60  SEHandlerTable:                0x0       
 0x147C8    0x68  SEHandlerCount:                0x0       
 0x147D0    0x70  GuardCFCheckFunctionPointer:   0x14000DBD0
-0x147D8    0x78  Reserved2:                     0x14000DBD8
+0x147D8    0x78  GuardCFDispatchFunctionPointer: 0x14000DBD8
 0x147E0    0x80  GuardCFFunctionTable:          0x0       
 0x147E8    0x88  GuardCFFunctionCount:          0x0       
 0x147F0    0x90  GuardFlags:                    0x100     
@@ -3499,11 +3499,13 @@ api-ms-win-crt-locale-l1-1-0.dll._configthreadlocale Hint[8]
 Type: IMAGE_DEBUG_TYPE_CODEVIEW
 
     [CV_INFO_PDB70]
-    0x1614C    0x0   CvSignature:                   0x53445352
+    0x1614C    0x0   CvSignature:                   RSDS
     0x16150    0x4   Signature_Data1:               4A928D8 
     0x16154    0x8   Signature_Data2:               222B    
     0x16156    0xA   Signature_Data3:               497F    
-    0x16158    0xC   Signature_Data4:               ACCF3A3C04CEEBA3
+    0x16158    0xC   Signature_Data4:               AC      
+    0x16159    0xD   Signature_Data5:               CF      
+    0x1615A    0xE   Signature_Data6:               3A3C04CEEBA3
     0x16160    0x14  Age:                           0x1       
     0x16164    0x18  PdbFileName:                   c:\users\romain\documents\visual\x20studio\x202015\Projects\Hello\x64\Release\Hello.pdb
 

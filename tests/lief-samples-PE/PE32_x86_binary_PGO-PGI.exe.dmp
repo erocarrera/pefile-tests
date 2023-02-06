@@ -448,10 +448,29 @@ pgort140.DLL.IrtAutoSweepA Hint[0]
 0x3330     0x40  SEHandlerTable:                0x4046C0  
 0x3334     0x44  SEHandlerCount:                0x7       
 0x3338     0x48  GuardCFCheckFunctionPointer:   0x404148  
-0x333C     0x4C  Reserved2:                     0x0       
+0x333C     0x4C  GuardCFDispatchFunctionPointer: 0x0       
 0x3340     0x50  GuardCFFunctionTable:          0x0       
 0x3344     0x54  GuardCFFunctionCount:          0x0       
 0x3348     0x58  GuardFlags:                    0x100     
+0x334C     0x5C  CodeIntegrityFlags:            0x0       
+0x334E     0x5E  CodeIntegrityCatalog:          0x0       
+0x3350     0x60  CodeIntegrityCatalogOffset:    0x0       
+0x3354     0x64  CodeIntegrityReserved:         0x0       
+0x3358     0x68  GuardAddressTakenIatEntryTable: 0x0       
+0x335C     0x6C  GuardAddressTakenIatEntryCount: 0x0       
+0x3360     0x70  GuardLongJumpTargetTable:      0x0       
+0x3364     0x74  GuardLongJumpTargetCount:      0x0       
+0x3368     0x78  DynamicValueRelocTable:        0x0       
+0x336C     0x7C  CHPEMetadataPointer:           0x0       
+0x3370     0x80  GuardRFFailureRoutine:         0x0       
+0x3374     0x84  GuardRFFailureRoutineFunctionPointer: 0x0       
+0x3378     0x88  DynamicValueRelocTableOffset:  0x0       
+0x337C     0x8C  DynamicValueRelocTableSection: 0x0       
+0x337E     0x8E  Reserved2:                     0x0       
+0x3380     0x90  GuardRFVerifyStackPointerFunctionPointerI: 0x0       
+0x3380     0x90  HotPatchTableOffset:           0x0       
+0x3384     0x94  Reserved3:                     0x0       
+0x3388     0x98  EnclaveConfigurationPointer:   0x0       
 
 ----------Debug information----------
 

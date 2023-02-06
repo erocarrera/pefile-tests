@@ -1001,11 +1001,6 @@ MPR.dll.WNetAddConnection2W Hint[0] Bound: 0x4AD224DD
 0x1B1DC    0x3C  SecurityCookie:                0x4AD240AC
 0x1B1E0    0x40  SEHandlerTable:                0x4AD1BDE8
 0x1B1E4    0x44  SEHandlerCount:                0x1       
-0x1B1E8    0x48  GuardCFCheckFunctionPointer:   0x22171   
-0x1B1EC    0x4C  Reserved2:                     0x90909090
-0x1B1F0    0x50  GuardCFFunctionTable:          0x55FF8B90
-0x1B1F4    0x54  GuardCFFunctionCount:          0x458BEC8B
-0x1B1F8    0x58  GuardFlags:                    0x6A0A6A08
 
 ----------Debug information----------
 
@@ -1021,11 +1016,13 @@ MPR.dll.WNetAddConnection2W Hint[0] Bound: 0x4AD224DD
 Type: IMAGE_DEBUG_TYPE_CODEVIEW
 
     [CV_INFO_PDB70]
-    0x23000    0x0   CvSignature:                   0x53445352
+    0x23000    0x0   CvSignature:                   RSDS
     0x23004    0x4   Signature_Data1:               EC6F7D59
     0x23008    0x8   Signature_Data2:               476D    
     0x2300A    0xA   Signature_Data3:               40A5    
-    0x2300C    0xC   Signature_Data4:               A7F2328BFB324868
+    0x2300C    0xC   Signature_Data4:               A7      
+    0x2300D    0xD   Signature_Data5:               F2      
+    0x2300E    0xE   Signature_Data6:               328BFB324868
     0x23014    0x14  Age:                           0x2       
     0x23018    0x18  PdbFileName:                   cmd.pdb
 

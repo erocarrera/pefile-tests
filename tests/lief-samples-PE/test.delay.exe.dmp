@@ -463,10 +463,29 @@ USER32.dll.MessageBoxA Hint[645] Bound: 0x140001A08
 0x20A90    0x60  SEHandlerTable:                0x0       
 0x20A98    0x68  SEHandlerCount:                0x0       
 0x20AA0    0x70  GuardCFCheckFunctionPointer:   0x1400182B0
-0x20AA8    0x78  Reserved2:                     0x1400182C0
+0x20AA8    0x78  GuardCFDispatchFunctionPointer: 0x1400182C0
 0x20AB0    0x80  GuardCFFunctionTable:          0x0       
 0x20AB8    0x88  GuardCFFunctionCount:          0x0       
 0x20AC0    0x90  GuardFlags:                    0x100     
+0x20AC4    0x94  CodeIntegrityFlags:            0x0       
+0x20AC6    0x96  CodeIntegrityCatalog:          0x0       
+0x20AC8    0x98  CodeIntegrityCatalogOffset:    0x0       
+0x20ACC    0x9C  CodeIntegrityReserved:         0x0       
+0x20AD0    0xA0  GuardAddressTakenIatEntryTable: 0x0       
+0x20AD8    0xA8  GuardAddressTakenIatEntryCount: 0x0       
+0x20AE0    0xB0  GuardLongJumpTargetTable:      0x0       
+0x20AE8    0xB8  GuardLongJumpTargetCount:      0x0       
+0x20AF0    0xC0  DynamicValueRelocTable:        0x0       
+0x20AF8    0xC8  CHPEMetadataPointer:           0x0       
+0x20B00    0xD0  GuardRFFailureRoutine:         0x0       
+0x20B08    0xD8  GuardRFFailureRoutineFunctionPointer: 0x0       
+0x20B10    0xE0  DynamicValueRelocTableOffset:  0x0       
+0x20B14    0xE4  DynamicValueRelocTableSection: 0x0       
+0x20B16    0xE6  Reserved2:                     0x0       
+0x20B18    0xE8  GuardRFVerifyStackPointerFunctionPointer: 0x0       
+0x20B20    0xF0  HotPatchTableOffset:           0x0       
+0x20B24    0xF4  Reserved3:                     0x0       
+0x20B28    0xF8  EnclaveConfigurationPointer:   0x0       
 
 ----------Debug information----------
 

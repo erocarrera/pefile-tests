@@ -207,7 +207,7 @@ ntdll.dll.RtlGetNtGlobalFlags Hint[0]
 0x2F0      0x60  SEHandlerTable:                0x0       
 0x2F8      0x68  SEHandlerCount:                0x0       
 0x300      0x70  GuardCFCheckFunctionPointer:   0x0       
-0x308      0x78  Reserved2:                     0x0       
+0x308      0x78  GuardCFDispatchFunctionPointer: 0x0       
 0x310      0x80  GuardCFFunctionTable:          0x0       
 0x318      0x88  GuardCFFunctionCount:          0x0       
 0x320      0x90  GuardFlags:                    0x0       

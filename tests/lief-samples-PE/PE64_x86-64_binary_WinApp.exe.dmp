@@ -1048,10 +1048,28 @@ KERNEL32.dll.GetLastError Hint[608]
 0xABF0     0x60  SEHandlerTable:                0x0       
 0xABF8     0x68  SEHandlerCount:                0x0       
 0xAC00     0x70  GuardCFCheckFunctionPointer:   0x140012000
-0xAC08     0x78  Reserved2:                     0x140012010
+0xAC08     0x78  GuardCFDispatchFunctionPointer: 0x140012010
 0xAC10     0x80  GuardCFFunctionTable:          0x140011000
 0xAC18     0x88  GuardCFFunctionCount:          0xF       
 0xAC20     0x90  GuardFlags:                    0x10500   
+0xAC24     0x94  CodeIntegrityFlags:            0x0       
+0xAC26     0x96  CodeIntegrityCatalog:          0x0       
+0xAC28     0x98  CodeIntegrityCatalogOffset:    0x0       
+0xAC2C     0x9C  CodeIntegrityReserved:         0x0       
+0xAC30     0xA0  GuardAddressTakenIatEntryTable: 0x0       
+0xAC38     0xA8  GuardAddressTakenIatEntryCount: 0x0       
+0xAC40     0xB0  GuardLongJumpTargetTable:      0x0       
+0xAC48     0xB8  GuardLongJumpTargetCount:      0x0       
+0xAC50     0xC0  DynamicValueRelocTable:        0x0       
+0xAC58     0xC8  CHPEMetadataPointer:           0x0       
+0xAC60     0xD0  GuardRFFailureRoutine:         0x140001040
+0xAC68     0xD8  GuardRFFailureRoutineFunctionPointer: 0x140012020
+0xAC70     0xE0  DynamicValueRelocTableOffset:  0x0       
+0xAC74     0xE4  DynamicValueRelocTableSection: 0x0       
+0xAC76     0xE6  Reserved2:                     0x0       
+0xAC78     0xE8  GuardRFVerifyStackPointerFunctionPointer: 0x140012030
+0xAC80     0xF0  HotPatchTableOffset:           0x0       
+0xAC84     0xF4  Reserved3:                     0x0       
 
 ----------Debug information----------
 
@@ -1067,11 +1085,13 @@ KERNEL32.dll.GetLastError Hint[608]
 Type: IMAGE_DEBUG_TYPE_CODEVIEW
 
     [CV_INFO_PDB70]
-    0xADFC     0x0   CvSignature:                   0x53445352
+    0xADFC     0x0   CvSignature:                   RSDS
     0xAE00     0x4   Signature_Data1:               6D4A5EB9
     0xAE04     0x8   Signature_Data2:               235A    
     0xAE06     0xA   Signature_Data3:               4143    
-    0xAE08     0xC   Signature_Data4:               BDC2E859958604E5
+    0xAE08     0xC   Signature_Data4:               BD      
+    0xAE09     0xD   Signature_Data5:               C2      
+    0xAE0A     0xE   Signature_Data6:               E859958604E5
     0xAE10     0x14  Age:                           0x1       
     0xAE14     0x18  PdbFileName:                   C:\Users\romain\source\repos\WinApp\x64\Debug\WinApp.pdb
 

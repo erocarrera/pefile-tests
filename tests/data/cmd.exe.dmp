@@ -1037,11 +1037,13 @@ MPR.dll.WNetAddConnection2W Hint[0] Bound: 0x4AD27C88
 Type: IMAGE_DEBUG_TYPE_CODEVIEW
 
     [CV_INFO_PDB70]
-    0x274AC    0x0   CvSignature:                   0x53445352
+    0x274AC    0x0   CvSignature:                   RSDS
     0x274B0    0x4   Signature_Data1:               B7D1CE05
     0x274B4    0x8   Signature_Data2:               83B0    
     0x274B6    0xA   Signature_Data3:               484A    
-    0x274B8    0xC   Signature_Data4:               A159364BC7DF15B1
+    0x274B8    0xC   Signature_Data4:               A1      
+    0x274B9    0xD   Signature_Data5:               59      
+    0x274BA    0xE   Signature_Data6:               364BC7DF15B1
     0x274C0    0x14  Age:                           0x2       
     0x274C4    0x18  PdbFileName:                   cmd.pdb
 

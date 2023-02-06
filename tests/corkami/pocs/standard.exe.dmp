@@ -472,7 +472,7 @@ standard.exe.export Hint[0]
 0x2160     0x40  SEHandlerTable:                0x402F80  
 0x2164     0x44  SEHandlerCount:                0x1       
 0x2168     0x48  GuardCFCheckFunctionPointer:   0x0       
-0x216C     0x4C  Reserved2:                     0x0       
+0x216C     0x4C  GuardCFDispatchFunctionPointer: 0x0       
 0x2170     0x50  GuardCFFunctionTable:          0x0       
 0x2174     0x54  GuardCFFunctionCount:          0x0       
 0x2178     0x58  GuardFlags:                    0x0       

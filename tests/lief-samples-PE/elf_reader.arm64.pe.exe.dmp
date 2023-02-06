@@ -701,11 +701,13 @@ KERNEL32.dll.lstrlenW Hint[0]
 Type: IMAGE_DEBUG_TYPE_CODEVIEW
 
     [CV_INFO_PDB70]
-    0x3DEE1C   0x0   CvSignature:                   0x53445352
+    0x3DEE1C   0x0   CvSignature:                   RSDS
     0x3DEE20   0x4   Signature_Data1:               CA5621EB
     0x3DEE24   0x8   Signature_Data2:               1175    
     0x3DEE26   0xA   Signature_Data3:               165B    
-    0x3DEE28   0xC   Signature_Data4:               4C4C44205044422E
+    0x3DEE28   0xC   Signature_Data4:               4C      
+    0x3DEE29   0xD   Signature_Data5:               4C      
+    0x3DEE2A   0xE   Signature_Data6:               44205044422E
     0x3DEE30   0x14  Age:                           0x1       
     0x3DEE34   0x18  PdbFileName:                   
 

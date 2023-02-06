@@ -520,11 +520,6 @@ USER32.dll.SendMessageW Hint[576]
 0xCEF4     0x3C  SecurityCookie:                0x1000E27C
 0xCEF8     0x40  SEHandlerTable:                0x1000D080
 0xCEFC     0x44  SEHandlerCount:                0x7       
-0xCF00     0x48  GuardCFCheckFunctionPointer:   0x53445352
-0xCF04     0x4C  Reserved2:                     0x89D37456
-0xCF08     0x50  GuardCFFunctionTable:          0x4D26FD59
-0xCF0C     0x54  GuardCFFunctionCount:          0x4AE840B8
-0xCF10     0x58  GuardFlags:                    0xEA2D0297
 
 ----------Debug information----------
 
@@ -540,11 +535,13 @@ USER32.dll.SendMessageW Hint[576]
 Type: IMAGE_DEBUG_TYPE_CODEVIEW
 
     [CV_INFO_PDB70]
-    0xCF00     0x0   CvSignature:                   0x53445352
+    0xCF00     0x0   CvSignature:                   RSDS
     0xCF04     0x4   Signature_Data1:               89D37456
     0xCF08     0x8   Signature_Data2:               FD59    
     0xCF0A     0xA   Signature_Data3:               4D26    
-    0xCF0C     0xC   Signature_Data4:               B840E84A97022DEA
+    0xCF0C     0xC   Signature_Data4:               B8      
+    0xCF0D     0xD   Signature_Data5:               40      
+    0xCF0E     0xE   Signature_Data6:               E84A97022DEA
     0xCF14     0x14  Age:                           0x1       
     0xCF18     0x18  PdbFileName:                   d:\source\mimeTools\Unicode\x20Release\mimeTools.pdb
 

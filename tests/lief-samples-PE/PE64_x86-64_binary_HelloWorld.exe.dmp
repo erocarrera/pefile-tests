@@ -438,7 +438,7 @@ KERNEL32.dll.RtlCaptureContext Hint[1198]
 0x14E0     0x60  SEHandlerTable:                0x0       
 0x14E8     0x68  SEHandlerCount:                0x0       
 0x14F0     0x70  GuardCFCheckFunctionPointer:   0x140002188
-0x14F8     0x78  Reserved2:                     0x140002190
+0x14F8     0x78  GuardCFDispatchFunctionPointer: 0x140002190
 0x1500     0x80  GuardCFFunctionTable:          0x0       
 0x1508     0x88  GuardCFFunctionCount:          0x0       
 0x1510     0x90  GuardFlags:                    0x100     
@@ -457,11 +457,13 @@ KERNEL32.dll.RtlCaptureContext Hint[1198]
 Type: IMAGE_DEBUG_TYPE_CODEVIEW
 
     [CV_INFO_PDB70]
-    0x1514     0x0   CvSignature:                   0x53445352
+    0x1514     0x0   CvSignature:                   RSDS
     0x1518     0x4   Signature_Data1:               31EF3A24
     0x151C     0x8   Signature_Data2:               5CAA    
     0x151E     0xA   Signature_Data3:               415B    
-    0x1520     0xC   Signature_Data4:               9C1337D908A5E6AD
+    0x1520     0xC   Signature_Data4:               9C      
+    0x1521     0xD   Signature_Data5:               13      
+    0x1522     0xE   Signature_Data6:               37D908A5E6AD
     0x1528     0x14  Age:                           0x1       
     0x152C     0x18  PdbFileName:                   c:\users\romain\documents\visual\x20studio\x202015\Projects\HelloWorld\x64\Release\HelloWorld.pdb
 

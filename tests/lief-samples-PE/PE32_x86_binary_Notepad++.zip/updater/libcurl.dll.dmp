@@ -637,11 +637,6 @@ ADVAPI32.dll.CryptGenRandom Hint[193]
 0x58264    0x3C  SecurityCookie:                0x1005C1D0
 0x58268    0x40  SEHandlerTable:                0x10059A70
 0x5826C    0x44  SEHandlerCount:                0x3       
-0x58270    0x48  GuardCFCheckFunctionPointer:   0x3CFC0   
-0x58274    0x4C  Reserved2:                     0x3D9B0   
-0x58278    0x50  GuardCFFunctionTable:          0x45430   
-0x5827C    0x54  GuardCFFunctionCount:          0x0       
-0x58280    0x58  GuardFlags:                    0x0       
 
 ----------Base relocations----------
 

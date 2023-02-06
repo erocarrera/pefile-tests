@@ -2823,11 +2823,6 @@ API-MS-Win-Security-Base-L1-1-0.dll.AccessCheck Hint[0]
 0x8318C    0x3C  SecurityCookie:                0x7DE403AC
 0x83190    0x40  SEHandlerTable:                0x7DDE3198
 0x83194    0x44  SEHandlerCount:                0x3       
-0x83198    0x48  GuardCFCheckFunctionPointer:   0x3D760   
-0x8319C    0x4C  Reserved2:                     0x3D850   
-0x831A0    0x50  GuardCFFunctionTable:          0xB4123   
-0x831A4    0x54  GuardCFFunctionCount:          0x90909090
-0x831A8    0x58  GuardFlags:                    0x55FF8B90
 
 ----------Debug information----------
 
@@ -2843,11 +2838,13 @@ API-MS-Win-Security-Base-L1-1-0.dll.AccessCheck Hint[0]
 Type: IMAGE_DEBUG_TYPE_CODEVIEW
 
     [CV_INFO_PDB70]
-    0xD0240    0x0   CvSignature:                   0x53445352
+    0xD0240    0x0   CvSignature:                   RSDS
     0xD0244    0x4   Signature_Data1:               1C690A85
     0xD0248    0x8   Signature_Data2:               9230    
     0xD024A    0xA   Signature_Data3:               4467    
-    0xD024C    0xC   Signature_Data4:               BB15A09CEA7180FA
+    0xD024C    0xC   Signature_Data4:               BB      
+    0xD024D    0xD   Signature_Data5:               15      
+    0xD024E    0xE   Signature_Data6:               A09CEA7180FA
     0xD0254    0x14  Age:                           0x2       
     0xD0258    0x18  PdbFileName:                   wkernel32.pdb
 

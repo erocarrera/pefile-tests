@@ -425,10 +425,29 @@ KERNEL32.dll.UnhandledExceptionFilter Hint[1434]
 0x6538     0x40  SEHandlerTable:                0x407ED0  
 0x653C     0x44  SEHandlerCount:                0xE       
 0x6540     0x48  GuardCFCheckFunctionPointer:   0x40718C  
-0x6544     0x4C  Reserved2:                     0x0       
+0x6544     0x4C  GuardCFDispatchFunctionPointer: 0x0       
 0x6548     0x50  GuardCFFunctionTable:          0x0       
 0x654C     0x54  GuardCFFunctionCount:          0x0       
 0x6550     0x58  GuardFlags:                    0x100     
+0x6554     0x5C  CodeIntegrityFlags:            0x0       
+0x6556     0x5E  CodeIntegrityCatalog:          0x0       
+0x6558     0x60  CodeIntegrityCatalogOffset:    0x0       
+0x655C     0x64  CodeIntegrityReserved:         0x0       
+0x6560     0x68  GuardAddressTakenIatEntryTable: 0x0       
+0x6564     0x6C  GuardAddressTakenIatEntryCount: 0x0       
+0x6568     0x70  GuardLongJumpTargetTable:      0x0       
+0x656C     0x74  GuardLongJumpTargetCount:      0x0       
+0x6570     0x78  DynamicValueRelocTable:        0x0       
+0x6574     0x7C  CHPEMetadataPointer:           0x0       
+0x6578     0x80  GuardRFFailureRoutine:         0x0       
+0x657C     0x84  GuardRFFailureRoutineFunctionPointer: 0x0       
+0x6580     0x88  DynamicValueRelocTableOffset:  0x0       
+0x6584     0x8C  DynamicValueRelocTableSection: 0x0       
+0x6586     0x8E  Reserved2:                     0x0       
+0x6588     0x90  GuardRFVerifyStackPointerFunctionPointerI: 0x0       
+0x6588     0x90  HotPatchTableOffset:           0x0       
+0x658C     0x94  Reserved3:                     0x0       
+0x6590     0x98  EnclaveConfigurationPointer:   0x0       
 
 ----------Debug information----------
 
@@ -444,11 +463,13 @@ KERNEL32.dll.UnhandledExceptionFilter Hint[1434]
 Type: IMAGE_DEBUG_TYPE_CODEVIEW
 
     [CV_INFO_PDB70]
-    0x6708     0x0   CvSignature:                   0x53445352
+    0x6708     0x0   CvSignature:                   RSDS
     0x670C     0x4   Signature_Data1:               23F00A13
     0x6710     0x8   Signature_Data2:               8E13    
     0x6712     0xA   Signature_Data3:               4039    
-    0x6714     0xC   Signature_Data4:               8D84BF24D96B565C
+    0x6714     0xC   Signature_Data4:               8D      
+    0x6715     0xD   Signature_Data5:               84      
+    0x6716     0xE   Signature_Data6:               BF24D96B565C
     0x671C     0x14  Age:                           0x1       
     0x6720     0x18  PdbFileName:                   C:\Users\romain\Desktop\win\build\Debug\hello.pdb
 

@@ -4427,11 +4427,6 @@ ntdll.dll.RtlUnwind Hint[851]
 0x4DA5C    0x3C  SecurityCookie:                0x7C8856CC
 0x4DA60    0x40  SEHandlerTable:                0x7C84E668
 0x4DA64    0x44  SEHandlerCount:                0x2       
-0x4DA68    0x48  GuardCFCheckFunctionPointer:   0xDF44    
-0x4DA6C    0x4C  Reserved2:                     0x39AD8   
-0x4DA70    0x50  GuardCFFunctionTable:          0x2F0022  
-0x4DA74    0x54  GuardCFFunctionCount:          0x5B005C  
-0x4DA78    0x58  GuardFlags:                    0x3A005D  
 
 ----------Debug information----------
 
@@ -4447,11 +4442,13 @@ ntdll.dll.RtlUnwind Hint[851]
 Type: IMAGE_DEBUG_TYPE_CODEVIEW
 
     [CV_INFO_PDB70]
-    0x835C4    0x0   CvSignature:                   0x53445352
+    0x835C4    0x0   CvSignature:                   RSDS
     0x835C8    0x4   Signature_Data1:               72FF0EB 
     0x835CC    0x8   Signature_Data2:               54D2    
     0x835CE    0xA   Signature_Data3:               4DFA    
-    0x835D0    0xC   Signature_Data4:               AE9D13885486EE09
+    0x835D0    0xC   Signature_Data4:               AE      
+    0x835D1    0xD   Signature_Data5:               9D      
+    0x835D2    0xE   Signature_Data6:               13885486EE09
     0x835D8    0x14  Age:                           0x2       
     0x835DC    0x18  PdbFileName:                   kernel32.pdb
 

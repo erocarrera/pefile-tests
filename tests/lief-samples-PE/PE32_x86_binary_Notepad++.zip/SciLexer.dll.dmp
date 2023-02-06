@@ -627,11 +627,6 @@ OLEAUT32.dll.SysFreeString Ordinal[6] (Imported by Ordinal)
 0xE7F74    0x3C  SecurityCookie:                0x100F5018
 0xE7F78    0x40  SEHandlerTable:                0x100EBBA0
 0xE7F7C    0x44  SEHandlerCount:                0x1AE     
-0xE7F80    0x48  GuardCFCheckFunctionPointer:   0x53445352
-0xE7F84    0x4C  Reserved2:                     0x714CFD16
-0xE7F88    0x50  GuardCFFunctionTable:          0x47B8677A
-0xE7F8C    0x54  GuardCFFunctionCount:          0xFA9588B6
-0xE7F90    0x58  GuardFlags:                    0xEA7DA224
 
 ----------Debug information----------
 
@@ -647,11 +642,13 @@ OLEAUT32.dll.SysFreeString Ordinal[6] (Imported by Ordinal)
 Type: IMAGE_DEBUG_TYPE_CODEVIEW
 
     [CV_INFO_PDB70]
-    0xE7F80    0x0   CvSignature:                   0x53445352
+    0xE7F80    0x0   CvSignature:                   RSDS
     0xE7F84    0x4   Signature_Data1:               714CFD16
     0xE7F88    0x8   Signature_Data2:               677A    
     0xE7F8A    0xA   Signature_Data3:               47B8    
-    0xE7F8C    0xC   Signature_Data4:               B68895FA24A27DEA
+    0xE7F8C    0xC   Signature_Data4:               B6      
+    0xE7F8D    0xD   Signature_Data5:               88      
+    0xE7F8E    0xE   Signature_Data6:               95FA24A27DEA
     0xE7F94    0x14  Age:                           0x1       
     0xE7F98    0x18  PdbFileName:                   C:\sources\notepad-plus-plus\scintilla\bin\SciLexer.pdb
 

@@ -563,11 +563,6 @@ SHELL32.dll.ShellExecuteA Hint[263]
 0x1B6C4    0x3C  SecurityCookie:                0x41E028  
 0x1B6C8    0x40  SEHandlerTable:                0x41BBE0  
 0x1B6CC    0x44  SEHandlerCount:                0x29      
-0x1B6D0    0x48  GuardCFCheckFunctionPointer:   0x53445352
-0x1B6D4    0x4C  Reserved2:                     0x9C24F232
-0x1B6D8    0x50  GuardCFFunctionTable:          0x43283343
-0x1B6DC    0x54  GuardCFFunctionCount:          0xAE785786
-0x1B6E0    0x58  GuardFlags:                    0x1FEE5D4F
 
 ----------Debug information----------
 
@@ -583,11 +578,13 @@ SHELL32.dll.ShellExecuteA Hint[263]
 Type: IMAGE_DEBUG_TYPE_CODEVIEW
 
     [CV_INFO_PDB70]
-    0x1B6D0    0x0   CvSignature:                   0x53445352
+    0x1B6D0    0x0   CvSignature:                   RSDS
     0x1B6D4    0x4   Signature_Data1:               9C24F232
     0x1B6D8    0x8   Signature_Data2:               3343    
     0x1B6DA    0xA   Signature_Data3:               4328    
-    0x1B6DC    0xC   Signature_Data4:               865778AE4F5DEE1F
+    0x1B6DC    0xC   Signature_Data4:               86      
+    0x1B6DD    0xD   Signature_Data5:               57      
+    0x1B6DE    0xE   Signature_Data6:               78AE4F5DEE1F
     0x1B6E4    0x14  Age:                           0x1       
     0x1B6E8    0x18  PdbFileName:                   d:\source\wingup\bin\GUP.pdb
 

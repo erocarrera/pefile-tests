@@ -1426,11 +1426,6 @@ ADVPACK.dll.RegInstallW Hint[0] Bound: 0x0101A4D9
 0x4EFC     0x3C  SecurityCookie:                0x101D044 
 0x4F00     0x40  SEHandlerTable:                0x1005B08 
 0x4F04     0x44  SEHandlerCount:                0x1       
-0x4F08     0x48  GuardCFCheckFunctionPointer:   0x19F99   
-0x4F0C     0x4C  Reserved2:                     0x90909090
-0x4F10     0x50  GuardCFFunctionTable:          0x55FF8B90
-0x4F14     0x54  GuardCFFunctionCount:          0xEC83EC8B
-0x4F18     0x58  GuardFlags:                    0x8B565310
 
 ----------Debug information----------
 
@@ -1446,11 +1441,13 @@ ADVPACK.dll.RegInstallW Hint[0] Bound: 0x0101A4D9
 Type: IMAGE_DEBUG_TYPE_CODEVIEW
 
     [CV_INFO_PDB70]
-    0x1B858    0x0   CvSignature:                   0x53445352
+    0x1B858    0x0   CvSignature:                   RSDS
     0x1B85C    0x4   Signature_Data1:               F112F584
     0x1B860    0x8   Signature_Data2:               9B42    
     0x1B862    0xA   Signature_Data3:               4E15    
-    0x1B864    0xC   Signature_Data4:               B7E5277B2649D2C4
+    0x1B864    0xC   Signature_Data4:               B7      
+    0x1B865    0xD   Signature_Data5:               E5      
+    0x1B866    0xE   Signature_Data6:               277B2649D2C4
     0x1B86C    0x14  Age:                           0x2       
     0x1B870    0x18  PdbFileName:                   regedit.pdb
 

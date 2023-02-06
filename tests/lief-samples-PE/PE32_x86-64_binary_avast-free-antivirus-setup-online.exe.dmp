@@ -1330,10 +1330,29 @@ WINHTTP.dll.WinHttpQueryHeaders Hint[19] Bound: 0x0040F119
 0x23530    0x40  SEHandlerTable:                0x4293F0  
 0x23534    0x44  SEHandlerCount:                0x22      
 0x23538    0x48  GuardCFCheckFunctionPointer:   0x4222BC  
-0x2353C    0x4C  Reserved2:                     0x0       
+0x2353C    0x4C  GuardCFDispatchFunctionPointer: 0x0       
 0x23540    0x50  GuardCFFunctionTable:          0x422314  
 0x23544    0x54  GuardCFFunctionCount:          0x75      
 0x23548    0x58  GuardFlags:                    0x10017500
+0x2354C    0x5C  CodeIntegrityFlags:            0x0       
+0x2354E    0x5E  CodeIntegrityCatalog:          0x0       
+0x23550    0x60  CodeIntegrityCatalogOffset:    0x0       
+0x23554    0x64  CodeIntegrityReserved:         0x0       
+0x23558    0x68  GuardAddressTakenIatEntryTable: 0x0       
+0x2355C    0x6C  GuardAddressTakenIatEntryCount: 0x0       
+0x23560    0x70  GuardLongJumpTargetTable:      0x0       
+0x23564    0x74  GuardLongJumpTargetCount:      0x0       
+0x23568    0x78  DynamicValueRelocTable:        0x0       
+0x2356C    0x7C  CHPEMetadataPointer:           0x0       
+0x23570    0x80  GuardRFFailureRoutine:         0x0       
+0x23574    0x84  GuardRFFailureRoutineFunctionPointer: 0x0       
+0x23578    0x88  DynamicValueRelocTableOffset:  0x0       
+0x2357C    0x8C  DynamicValueRelocTableSection: 0x0       
+0x2357E    0x8E  Reserved2:                     0x0       
+0x23580    0x90  GuardRFVerifyStackPointerFunctionPointerI: 0x0       
+0x23580    0x90  HotPatchTableOffset:           0x0       
+0x23584    0x94  Reserved3:                     0x0       
+0x23588    0x98  EnclaveConfigurationPointer:   0x0       
 
 ----------Debug information----------
 
@@ -1349,11 +1368,13 @@ WINHTTP.dll.WinHttpQueryHeaders Hint[19] Bound: 0x0040F119
 Type: IMAGE_DEBUG_TYPE_CODEVIEW
 
     [CV_INFO_PDB70]
-    0x27E78    0x0   CvSignature:                   0x53445352
+    0x27E78    0x0   CvSignature:                   RSDS
     0x27E7C    0x4   Signature_Data1:               1CD71F75
     0x27E80    0x8   Signature_Data2:               17DD    
     0x27E82    0xA   Signature_Data3:               4A5B    
-    0x27E84    0xC   Signature_Data4:               879643C6AA7251CE
+    0x27E84    0xC   Signature_Data4:               87      
+    0x27E85    0xD   Signature_Data5:               96      
+    0x27E86    0xE   Signature_Data6:               43C6AA7251CE
     0x27E8C    0x14  Age:                           0x3       
     0x27E90    0x18  PdbFileName:                   D:\work\8b0ebd312dc47f30\projects\avast\microstub\x86\Release\microstub.pdb
 

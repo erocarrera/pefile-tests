@@ -198,7 +198,7 @@ msvcrt.dll.printf Hint[0]
 0x2B0      0x40  SEHandlerTable:                0x4010D0  
 0x2B4      0x44  SEHandlerCount:                0x1       
 0x2B8      0x48  GuardCFCheckFunctionPointer:   0x0       
-0x2BC      0x4C  Reserved2:                     0x0       
+0x2BC      0x4C  GuardCFDispatchFunctionPointer: 0x0       
 0x2C0      0x50  GuardCFFunctionTable:          0x0       
 0x2C4      0x54  GuardCFFunctionCount:          0x0       
 0x2C8      0x58  GuardFlags:                    0x0       
