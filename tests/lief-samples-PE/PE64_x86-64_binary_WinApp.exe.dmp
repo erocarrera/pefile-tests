@@ -1042,7 +1042,7 @@ KERNEL32.dll.GetLastError Hint[608]
 0xABD0     0x40  ProcessAffinityMask:           0x0       
 0xABD8     0x48  ProcessHeapFlags:              0x0       
 0xABDC     0x4C  CSDVersion:                    0x0       
-0xABDE     0x4E  Reserved1:                     0x0       
+0xABDE     0x4E  DependentLoadFlags:            0x0       
 0xABE0     0x50  EditList:                      0x0       
 0xABE8     0x58  SecurityCookie:                0x14000D008
 0xABF0     0x60  SEHandlerTable:                0x0       

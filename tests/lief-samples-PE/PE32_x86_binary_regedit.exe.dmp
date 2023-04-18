@@ -1421,7 +1421,7 @@ ADVPACK.dll.RegInstallW Hint[0] Bound: 0x0101A4D9
 0x4EEC     0x2C  ProcessHeapFlags:              0x0       
 0x4EF0     0x30  ProcessAffinityMask:           0x0       
 0x4EF4     0x34  CSDVersion:                    0x0       
-0x4EF6     0x36  Reserved1:                     0x0       
+0x4EF6     0x36  DependentLoadFlags:            0x0       
 0x4EF8     0x38  EditList:                      0x0       
 0x4EFC     0x3C  SecurityCookie:                0x101D044 
 0x4F00     0x40  SEHandlerTable:                0x1005B08 

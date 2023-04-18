@@ -569,7 +569,7 @@ USER32.dll.GetWindowRect Hint[372]
 0x133EC    0x2C  ProcessHeapFlags:              0x0       
 0x133F0    0x30  ProcessAffinityMask:           0x0       
 0x133F4    0x34  CSDVersion:                    0x0       
-0x133F6    0x36  Reserved1:                     0x0       
+0x133F6    0x36  DependentLoadFlags:            0x0       
 0x133F8    0x38  EditList:                      0x0       
 0x133FC    0x3C  SecurityCookie:                0x100155D0
 0x13400    0x40  SEHandlerTable:                0x10013790

@@ -3474,7 +3474,7 @@ api-ms-win-crt-locale-l1-1-0.dll._configthreadlocale Hint[8]
 0x147A0    0x40  ProcessAffinityMask:           0x0       
 0x147A8    0x48  ProcessHeapFlags:              0x0       
 0x147AC    0x4C  CSDVersion:                    0x0       
-0x147AE    0x4E  Reserved1:                     0x0       
+0x147AE    0x4E  DependentLoadFlags:            0x0       
 0x147B0    0x50  EditList:                      0x0       
 0x147B8    0x58  SecurityCookie:                0x14001C008
 0x147C0    0x60  SEHandlerTable:                0x0       

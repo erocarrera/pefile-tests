@@ -664,7 +664,7 @@ WINBRAND.dll.BrandingFormatString Hint[0]
 0x13478    0x2C  ProcessHeapFlags:              0x0       
 0x1347C    0x30  ProcessAffinityMask:           0x0       
 0x13480    0x34  CSDVersion:                    0x0       
-0x13482    0x36  Reserved1:                     0x0       
+0x13482    0x36  DependentLoadFlags:            0x0       
 0x13484    0x38  EditList:                      0x0       
 0x13488    0x3C  SecurityCookie:                0x4AD240AC
 0x1348C    0x40  SEHandlerTable:                0x4AD1BDE8

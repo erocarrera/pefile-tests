@@ -996,7 +996,7 @@ MPR.dll.WNetAddConnection2W Hint[0] Bound: 0x4AD224DD
 0x1B1CC    0x2C  ProcessHeapFlags:              0x0       
 0x1B1D0    0x30  ProcessAffinityMask:           0x0       
 0x1B1D4    0x34  CSDVersion:                    0x0       
-0x1B1D6    0x36  Reserved1:                     0x0       
+0x1B1D6    0x36  DependentLoadFlags:            0x0       
 0x1B1D8    0x38  EditList:                      0x0       
 0x1B1DC    0x3C  SecurityCookie:                0x4AD240AC
 0x1B1E0    0x40  SEHandlerTable:                0x4AD1BDE8

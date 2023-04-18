@@ -622,7 +622,7 @@ OLEAUT32.dll.SysFreeString Ordinal[6] (Imported by Ordinal)
 0xE7F64    0x2C  ProcessHeapFlags:              0x0       
 0xE7F68    0x30  ProcessAffinityMask:           0x0       
 0xE7F6C    0x34  CSDVersion:                    0x0       
-0xE7F6E    0x36  Reserved1:                     0x0       
+0xE7F6E    0x36  DependentLoadFlags:            0x0       
 0xE7F70    0x38  EditList:                      0x0       
 0xE7F74    0x3C  SecurityCookie:                0x100F5018
 0xE7F78    0x40  SEHandlerTable:                0x100EBBA0

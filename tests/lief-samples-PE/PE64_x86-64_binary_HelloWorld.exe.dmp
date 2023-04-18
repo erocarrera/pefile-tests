@@ -432,7 +432,7 @@ KERNEL32.dll.RtlCaptureContext Hint[1198]
 0x14C0     0x40  ProcessAffinityMask:           0x0       
 0x14C8     0x48  ProcessHeapFlags:              0x0       
 0x14CC     0x4C  CSDVersion:                    0x0       
-0x14CE     0x4E  Reserved1:                     0x0       
+0x14CE     0x4E  DependentLoadFlags:            0x0       
 0x14D0     0x50  EditList:                      0x0       
 0x14D8     0x58  SecurityCookie:                0x140003000
 0x14E0     0x60  SEHandlerTable:                0x0       

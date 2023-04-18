@@ -466,7 +466,7 @@ standard.exe.export Hint[0]
 0x214C     0x2C  ProcessHeapFlags:              0x0       
 0x2150     0x30  ProcessAffinityMask:           0x0       
 0x2154     0x34  CSDVersion:                    0x0       
-0x2156     0x36  Reserved1:                     0x0       
+0x2156     0x36  DependentLoadFlags:            0x0       
 0x2158     0x38  EditList:                      0x0       
 0x215C     0x3C  SecurityCookie:                0x402F7C  
 0x2160     0x40  SEHandlerTable:                0x402F80  

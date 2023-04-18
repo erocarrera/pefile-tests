@@ -454,7 +454,7 @@ KERNEL32.dll.QueryPerformanceCounter Hint[1072]
 0x1280     0x40  ProcessAffinityMask:           0x0       
 0x1288     0x48  ProcessHeapFlags:              0x0       
 0x128C     0x4C  CSDVersion:                    0x0       
-0x128E     0x4E  Reserved1:                     0x0       
+0x128E     0x4E  DependentLoadFlags:            0x0       
 0x1290     0x50  EditList:                      0x0       
 0x1298     0x58  SecurityCookie:                0x140003018
 0x12A0     0x60  SEHandlerTable:                0x0       

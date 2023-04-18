@@ -7310,7 +7310,7 @@ ole32.dll.CoUninitialize Hint[108]
 0x13A85C   0x2C  ProcessHeapFlags:              0x0       
 0x13A860   0x30  ProcessAffinityMask:           0x0       
 0x13A864   0x34  CSDVersion:                    0x0       
-0x13A866   0x36  Reserved1:                     0x0       
+0x13A866   0x36  DependentLoadFlags:            0x0       
 0x13A868   0x38  EditList:                      0x0       
 0x13A86C   0x3C  SecurityCookie:                0x55C880  
 0x13A870   0x40  SEHandlerTable:                0x53E630  

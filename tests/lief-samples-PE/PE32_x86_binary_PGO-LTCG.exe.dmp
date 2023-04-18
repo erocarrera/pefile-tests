@@ -419,7 +419,7 @@ KERNEL32.dll.UnhandledExceptionFilter Hint[1434]
 0x6524     0x2C  ProcessHeapFlags:              0x0       
 0x6528     0x30  ProcessAffinityMask:           0x0       
 0x652C     0x34  CSDVersion:                    0x0       
-0x652E     0x36  Reserved1:                     0x0       
+0x652E     0x36  DependentLoadFlags:            0x0       
 0x6530     0x38  EditList:                      0x0       
 0x6534     0x3C  SecurityCookie:                0x40A004  
 0x6538     0x40  SEHandlerTable:                0x407ED0  
@@ -444,10 +444,10 @@ KERNEL32.dll.UnhandledExceptionFilter Hint[1434]
 0x6580     0x88  DynamicValueRelocTableOffset:  0x0       
 0x6584     0x8C  DynamicValueRelocTableSection: 0x0       
 0x6586     0x8E  Reserved2:                     0x0       
-0x6588     0x90  GuardRFVerifyStackPointerFunctionPointerI: 0x0       
-0x6588     0x90  HotPatchTableOffset:           0x0       
-0x658C     0x94  Reserved3:                     0x0       
-0x6590     0x98  EnclaveConfigurationPointer:   0x0       
+0x6588     0x90  GuardRFVerifyStackPointerFunctionPointer: 0x0       
+0x658C     0x94  HotPatchTableOffset:           0x0       
+0x6590     0x98  Reserved3:                     0x0       
+0x6594     0x9C  EnclaveConfigurationPointer:   0x0       
 
 ----------Debug information----------
 

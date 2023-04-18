@@ -457,7 +457,7 @@ USER32.dll.MessageBoxA Hint[645] Bound: 0x140001A08
 0x20A70    0x40  ProcessAffinityMask:           0x0       
 0x20A78    0x48  ProcessHeapFlags:              0x0       
 0x20A7C    0x4C  CSDVersion:                    0x0       
-0x20A7E    0x4E  Reserved1:                     0x0       
+0x20A7E    0x4E  DependentLoadFlags:            0x0       
 0x20A80    0x50  EditList:                      0x0       
 0x20A88    0x58  SecurityCookie:                0x140025028
 0x20A90    0x60  SEHandlerTable:                0x0       
@@ -486,6 +486,13 @@ USER32.dll.MessageBoxA Hint[645] Bound: 0x140001A08
 0x20B20    0xF0  HotPatchTableOffset:           0x0       
 0x20B24    0xF4  Reserved3:                     0x0       
 0x20B28    0xF8  EnclaveConfigurationPointer:   0x0       
+0x20B30    0x100 VolatileMetadataPointer:       0x14002255C
+0x20B38    0x108 GuardEHContinuationTable:      0x0       
+0x20B40    0x110 GuardEHContinuationCount:      0x0       
+0x20B48    0x118 GuardXFGCheckFunctionPointer:  0x1400182B8
+0x20B50    0x120 GuardXFGDispatchFunctionPointer: 0x1400182C8
+0x20B58    0x128 GuardXFGTableDispatchFunctionPointer: 0x1400182D0
+0x20B60    0x130 CastGuardOsDeterminedFailureMode: 0x14002A3F0
 
 ----------Debug information----------
 

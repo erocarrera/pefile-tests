@@ -558,7 +558,7 @@ SHELL32.dll.ShellExecuteA Hint[263]
 0x1B6B4    0x2C  ProcessHeapFlags:              0x0       
 0x1B6B8    0x30  ProcessAffinityMask:           0x0       
 0x1B6BC    0x34  CSDVersion:                    0x0       
-0x1B6BE    0x36  Reserved1:                     0x0       
+0x1B6BE    0x36  DependentLoadFlags:            0x0       
 0x1B6C0    0x38  EditList:                      0x0       
 0x1B6C4    0x3C  SecurityCookie:                0x41E028  
 0x1B6C8    0x40  SEHandlerTable:                0x41BBE0  

@@ -201,7 +201,7 @@ ntdll.dll.RtlGetNtGlobalFlags Hint[0]
 0x2D0      0x40  ProcessAffinityMask:           0x0       
 0x2D8      0x48  ProcessHeapFlags:              0x0       
 0x2DC      0x4C  CSDVersion:                    0x0       
-0x2DE      0x4E  Reserved1:                     0x0       
+0x2DE      0x4E  DependentLoadFlags:            0x0       
 0x2E0      0x50  EditList:                      0x0       
 0x2E8      0x58  SecurityCookie:                0x0       
 0x2F0      0x60  SEHandlerTable:                0x0       

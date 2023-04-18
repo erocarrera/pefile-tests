@@ -4422,7 +4422,7 @@ ntdll.dll.RtlUnwind Hint[851]
 0x4DA4C    0x2C  ProcessHeapFlags:              0x0       
 0x4DA50    0x30  ProcessAffinityMask:           0x0       
 0x4DA54    0x34  CSDVersion:                    0x0       
-0x4DA56    0x36  Reserved1:                     0x0       
+0x4DA56    0x36  DependentLoadFlags:            0x0       
 0x4DA58    0x38  EditList:                      0x0       
 0x4DA5C    0x3C  SecurityCookie:                0x7C8856CC
 0x4DA60    0x40  SEHandlerTable:                0x7C84E668

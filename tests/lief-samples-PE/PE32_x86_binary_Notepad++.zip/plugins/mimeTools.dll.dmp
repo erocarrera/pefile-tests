@@ -515,7 +515,7 @@ USER32.dll.SendMessageW Hint[576]
 0xCEE4     0x2C  ProcessHeapFlags:              0x0       
 0xCEE8     0x30  ProcessAffinityMask:           0x0       
 0xCEEC     0x34  CSDVersion:                    0x0       
-0xCEEE     0x36  Reserved1:                     0x0       
+0xCEEE     0x36  DependentLoadFlags:            0x0       
 0xCEF0     0x38  EditList:                      0x0       
 0xCEF4     0x3C  SecurityCookie:                0x1000E27C
 0xCEF8     0x40  SEHandlerTable:                0x1000D080

@@ -210,7 +210,7 @@ msvcrt.dll.printf Hint[0]
 0x2EC      0x2C  ProcessHeapFlags:              0x0       
 0x2F0      0x30  ProcessAffinityMask:           0x0       
 0x2F4      0x34  CSDVersion:                    0x0       
-0x2F6      0x36  Reserved1:                     0x0       
+0x2F6      0x36  DependentLoadFlags:            0x0       
 0x2F8      0x38  EditList:                      0x0       
 0x2FC      0x3C  SecurityCookie:                0x0       
 0x300      0x40  SEHandlerTable:                0x0       

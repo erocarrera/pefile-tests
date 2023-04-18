@@ -2818,7 +2818,7 @@ API-MS-Win-Security-Base-L1-1-0.dll.AccessCheck Hint[0]
 0x8317C    0x2C  ProcessHeapFlags:              0x0       
 0x83180    0x30  ProcessAffinityMask:           0x0       
 0x83184    0x34  CSDVersion:                    0x0       
-0x83186    0x36  Reserved1:                     0x0       
+0x83186    0x36  DependentLoadFlags:            0x0       
 0x83188    0x38  EditList:                      0x0       
 0x8318C    0x3C  SecurityCookie:                0x7DE403AC
 0x83190    0x40  SEHandlerTable:                0x7DDE3198

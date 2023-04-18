@@ -1324,7 +1324,7 @@ WINHTTP.dll.WinHttpQueryHeaders Hint[19] Bound: 0x0040F119
 0x2351C    0x2C  ProcessHeapFlags:              0x0       
 0x23520    0x30  ProcessAffinityMask:           0x0       
 0x23524    0x34  CSDVersion:                    0x0       
-0x23526    0x36  Reserved1:                     0x0       
+0x23526    0x36  DependentLoadFlags:            0x0       
 0x23528    0x38  EditList:                      0x0       
 0x2352C    0x3C  SecurityCookie:                0x42C008  
 0x23530    0x40  SEHandlerTable:                0x4293F0  
@@ -1349,10 +1349,10 @@ WINHTTP.dll.WinHttpQueryHeaders Hint[19] Bound: 0x0040F119
 0x23578    0x88  DynamicValueRelocTableOffset:  0x0       
 0x2357C    0x8C  DynamicValueRelocTableSection: 0x0       
 0x2357E    0x8E  Reserved2:                     0x0       
-0x23580    0x90  GuardRFVerifyStackPointerFunctionPointerI: 0x0       
-0x23580    0x90  HotPatchTableOffset:           0x0       
-0x23584    0x94  Reserved3:                     0x0       
-0x23588    0x98  EnclaveConfigurationPointer:   0x0       
+0x23580    0x90  GuardRFVerifyStackPointerFunctionPointer: 0x0       
+0x23584    0x94  HotPatchTableOffset:           0x0       
+0x23588    0x98  Reserved3:                     0x0       
+0x2358C    0x9C  EnclaveConfigurationPointer:   0x0       
 
 ----------Debug information----------
 

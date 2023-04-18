@@ -442,7 +442,7 @@ pgort140.DLL.IrtAutoSweepA Hint[0]
 0x331C     0x2C  ProcessHeapFlags:              0x0       
 0x3320     0x30  ProcessAffinityMask:           0x0       
 0x3324     0x34  CSDVersion:                    0x0       
-0x3326     0x36  Reserved1:                     0x0       
+0x3326     0x36  DependentLoadFlags:            0x0       
 0x3328     0x38  EditList:                      0x0       
 0x332C     0x3C  SecurityCookie:                0x406014  
 0x3330     0x40  SEHandlerTable:                0x4046C0  
@@ -467,10 +467,10 @@ pgort140.DLL.IrtAutoSweepA Hint[0]
 0x3378     0x88  DynamicValueRelocTableOffset:  0x0       
 0x337C     0x8C  DynamicValueRelocTableSection: 0x0       
 0x337E     0x8E  Reserved2:                     0x0       
-0x3380     0x90  GuardRFVerifyStackPointerFunctionPointerI: 0x0       
-0x3380     0x90  HotPatchTableOffset:           0x0       
-0x3384     0x94  Reserved3:                     0x0       
-0x3388     0x98  EnclaveConfigurationPointer:   0x0       
+0x3380     0x90  GuardRFVerifyStackPointerFunctionPointer: 0x0       
+0x3384     0x94  HotPatchTableOffset:           0x0       
+0x3388     0x98  Reserved3:                     0x0       
+0x338C     0x9C  EnclaveConfigurationPointer:   0x0       
 
 ----------Debug information----------
 

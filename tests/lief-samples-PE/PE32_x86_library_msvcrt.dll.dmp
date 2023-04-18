@@ -2263,7 +2263,7 @@ DLL: API-MS-Win-Core-Util-L1-1-0.dll
 0x2849C    0x2C  ProcessHeapFlags:              0x0       
 0x284A0    0x30  ProcessAffinityMask:           0x0       
 0x284A4    0x34  CSDVersion:                    0x0       
-0x284A6    0x36  Reserved1:                     0x0       
+0x284A6    0x36  DependentLoadFlags:            0x0       
 0x284A8    0x38  EditList:                      0x0       
 0x284AC    0x3C  SecurityCookie:                0x6FFF060C
 0x284B0    0x40  SEHandlerTable:                0x6FF78CB8
