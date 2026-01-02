@@ -10,11 +10,11 @@ Invalid debug information. Can't read data at RVA: 0xffffffff
 
 Invalid TLS information. Can't read data at RVA: 0xffffffff
 
-Error parsing the Delay import directory at RVA: 0xffffffff
-
 Corrupt header "IMAGE_BOUND_IMPORT_DESCRIPTOR" at file offset 4294967295. Exception: 'Data length less than expected header length.'
 
 The Bound Imports directory exists but can't be parsed.
+
+Error parsing the Delay import directory at RVA: 0xffffffff
 
 ----------DOS_HEADER----------
 

@@ -4,25 +4,25 @@ Byte 0x00 makes up 94.1964% of the file's contents. This may indicate truncation
 
 AddressOfEntryPoint lies outside the sections' boundaries. AddressOfEntryPoint: 0x10a0
 
-Error parsing the import directory at RVA: 0x86600010
-
 Error parsing export directory at RVA: 0x88660001
+
+Error parsing the import directory at RVA: 0x86600010
 
 Invalid resources directory. Can't read directory data at RVA: 0x66000100
 
-Invalid debug information. Can't read data at RVA: 0x100ff05
-
 Invalid relocation information. Can't read data at RVA: 0x100ff0
+
+Invalid debug information. Can't read data at RVA: 0x100ff05
 
 Invalid TLS information. Can't read data at RVA: 0x100ff05
 
 Invalid LOAD_CONFIG information. Can't read data at RVA: 0x100ff0
 
-Error parsing the Delay import directory at RVA: 0x66000100
-
 Corrupt header "IMAGE_BOUND_IMPORT_DESCRIPTOR" at file offset 65791. Exception: 'Data length less than expected header length.'
 
 The Bound Imports directory exists but can't be parsed.
+
+Error parsing the Delay import directory at RVA: 0x66000100
 
 ----------DOS_HEADER----------
 

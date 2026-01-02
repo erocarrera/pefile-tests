@@ -8,6 +8,8 @@ Suspicious NumberOfRvaAndSizes in the Optional Header. Normal values are never l
 
 Suspicious flags set for section 0. Both IMAGE_SCN_MEM_WRITE and IMAGE_SCN_MEM_EXECUTE are set. This might indicate a packed executable.
 
+Error parsing export directory at RVA: 0xffffffff
+
 Error parsing the import table. Invalid data at RVA: 0xffffffff
 
 Error parsing the import table. Invalid data at RVA: 0xffffffff
@@ -39,8 +41,6 @@ Error parsing the import table. Invalid data at RVA: 0x2e747263
 Damaged Import Table information. ILT and/or IAT appear to be broken. OriginalFirstThunk: 0x2e747263 FirstThunk: 0x0
 
 Too many errors parsing the import directory. Invalid import data at RVA: 0x1104
-
-Error parsing export directory at RVA: 0xffffffff
 
 Invalid relocation information. Can't read data at RVA: 0xffffffff
 
