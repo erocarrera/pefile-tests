@@ -1,0 +1,118 @@
+name: Regenerate Test Data
+
+on:
+  workflow_dispatch:
+    inputs:
+      pefile_repo:
+        description: 'pefile repository to install from (format: owner/repo or git+https://github.com/owner/repo.git)'
+        required: true
+        default: 'erocarrera/pefile'
+        type: string
+      pefile_branch:
+        description:  'Branch to use from the pefile repository'
+        required: true
+        default: 'master'
+        type: string
+      create_pr:
+        description: 'Create a pull request (if false, will only push to branch)'
+        required: true
+        default: true
+        type: boolean
+
+jobs: 
+  regenerate: 
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+      
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version:  '3.x'
+      
+      - name:  Parse pefile repository input
+        id: parse_repo
+        run:  |
+          REPO_INPUT="${{ github.event.inputs.pefile_repo }}"
+          BRANCH="${{ github.event.inputs.pefile_branch }}"
+          
+          # Check if it's already a git URL
+          if [[ "$REPO_INPUT" == git+https://* ]] || [[ "$REPO_INPUT" == https://* ]]; then
+            echo "PEFILE_INSTALL=${REPO_INPUT}@${BRANCH}" >> $GITHUB_OUTPUT
+            repo_name="${REPO_INPUT#*://*/}"
+            echo "pefile_repo_name=${repo_name}" >> $GITHUB_OUTPUT
+          else
+            # Convert owner/repo to git URL
+            echo "PEFILE_INSTALL=git+https://github.com/${REPO_INPUT}.git@${BRANCH}" >> $GITHUB_OUTPUT
+            repo_name="${REPO_INPUT}"
+            echo "pefile_repo_name=${repo_name}" >> $GITHUB_OUTPUT
+          fi
+          
+          # Create branch name
+          BRANCH_NAME="regen-tests-${repo_name}-${{ github.event.inputs.pefile_branch }}"
+          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_OUTPUT
+      
+      - name: Install pefile from specified repository
+        run: |
+          python -m pip install --upgrade pip
+          pip install "${{ steps.parse_repo.outputs.PEFILE_INSTALL }}"
+          pip install ".[testing]"
+      
+      - name: Regenerate test data
+        run: |
+          python -c "import sys; sys.path. insert(0, 'tests'); from pefile_test import test_pe_image_regression_test, _load_test_files; [test_pe_image_regression_test(f, REGEN=True) for f in _load_test_files()]"
+      
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if [[ -n $(git status --porcelain) ]]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Create Pull Request
+        if: steps.check_changes.outputs.has_changes == 'true' && github.event.inputs.create_pr == 'true'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          commit-message:  'Update dumps with pefile from ${{ github.event.inputs.pefile_repo }}@${{ github.event.inputs.pefile_branch }}'
+          branch: '${{ steps.parse_repo.outputs.BRANCH_NAME }}'
+          title: 'Regenerate test data with pefile from ${{ github.event.inputs.pefile_repo }}@${{ github.event.inputs.pefile_branch }}'
+          body: |
+            ## Test Data Regeneration
+            
+            This PR regenerates test data using pefile from:  `${{ github.event.inputs.pefile_repo }}@${{ github.event.inputs.pefile_branch }}`
+            
+            **Triggered by:** @${{ github.actor }}
+            **Workflow run:** ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            
+            ### Changes
+            - Regenerated `.dmp` files for all PE test files
+            - Used pefile installation: `${{ steps.parse_repo.outputs.PEFILE_INSTALL }}`
+            
+            Please review the changes carefully before merging.
+          labels: |
+            automated
+            test-data
+          assignees:  ${{ github.actor }}
+     
+      - name: Push to branch without PR
+        if: steps.check_changes.outputs.has_changes == 'true' && github. event.inputs.create_pr == 'false'
+        run:  |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "${{ steps.parse_repo.outputs.BRANCH_NAME }}"
+          git add . 
+          git commit -m "Update dumps with pefile from ${{ github.event.inputs.pefile_repo }}@${{ github.event.inputs.pefile_branch }}"
+          git push origin "${{ steps.parse_repo.outputs.BRANCH_NAME }}" --force
+          echo "::notice::Changes pushed to branch ${{ steps.parse_repo.outputs.BRANCH_NAME }}"
+ 
+      - name: No changes detected
+        if: steps.check_changes.outputs.has_changes == 'false'
+        run:  |
+          echo "No changes detected.  Test data is already up to date."
