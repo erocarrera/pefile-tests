@@ -6,7 +6,7 @@ Suspicious NumberOfRvaAndSizes in the Optional Header. Normal values are never l
 
 Error parsing section 0. SizeOfRawData is larger than file.
 
-If FileAlignment > 0x200 it should be a power of 2. Value: ffffffff
+If FileAlignment > 0x200 it should be a power of 2. Value: 0xffffffff
 
 Error parsing section 0. PointerToRawData should normally be a multiple of FileAlignment, this might imply the file is trying to confuse tools which parse this incorrectly.
 
@@ -16,25 +16,25 @@ Invalid section 1. Contents are null-bytes.
 
 AddressOfEntryPoint lies outside the sections' boundaries. AddressOfEntryPoint: 0xffffffff
 
-Error parsing the import directory at RVA: 0xffffffff
-
 Error parsing export directory at RVA: 0xffffffff
+
+Error parsing the import directory at RVA: 0xffffffff
 
 Invalid resources directory. Can't read directory data at RVA: 0x1000
 
-Invalid debug information. Can't read data at RVA: 0xffffffff
-
 Invalid relocation information. Can't read data at RVA: 0xffffffff
+
+Invalid debug information. Can't read data at RVA: 0xffffffff
 
 Invalid TLS information. Can't read data at RVA: 0xffffffff
 
 Invalid LOAD_CONFIG information. Can't read data at RVA: 0xffffffff
 
-Error parsing the Delay import directory at RVA: 0xffffffff
-
 Corrupt header "IMAGE_BOUND_IMPORT_DESCRIPTOR" at file offset 4294967295. Exception: 'Data length less than expected header length.'
 
 The Bound Imports directory exists but can't be parsed.
+
+Error parsing the Delay import directory at RVA: 0xffffffff
 
 ----------DOS_HEADER----------
 
