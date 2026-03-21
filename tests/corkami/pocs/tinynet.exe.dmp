@@ -2,6 +2,8 @@
 
 Byte 0x00 makes up 74.5443% of the file's contents. This may indicate truncation / malformation.
 
+SizeofOptionalHeader indicates that NumberOfRvaAndSizes is off by at least 14.
+
 ----------DOS_HEADER----------
 
 [IMAGE_DOS_HEADER]

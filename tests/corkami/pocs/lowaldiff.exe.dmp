@@ -2,6 +2,8 @@
 
 Byte 0x00 makes up 96.6222% of the file's contents. This may indicate truncation / malformation.
 
+SizeofOptionalHeader indicates that NumberOfRvaAndSizes is off by at least 14.
+
 If SectionAlignment (0x400) < 0x1000 it should equal FileAlignment (0x200)
 
 Suspicious flags set for section 0. Both IMAGE_SCN_MEM_WRITE and IMAGE_SCN_MEM_EXECUTE are set. This might indicate a packed executable.
