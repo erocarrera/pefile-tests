@@ -104,4 +104,52 @@ SHA-512 hash: 5c2eee3a773f6ecdbb393cb40bfe2f342d07084577049c185f3e28f892bd26f9a5
 
 ----------Directories----------
 
+[IMAGE_DIRECTORY_ENTRY_EXPORT]
+0xC8       0x0   VirtualAddress:                0x0       
+0xCC       0x4   Size:                          0x0       
+[IMAGE_DIRECTORY_ENTRY_IMPORT]
+0xD0       0x0   VirtualAddress:                0x0       
+0xD4       0x4   Size:                          0x0       
+[IMAGE_DIRECTORY_ENTRY_RESOURCE]
+0xD8       0x0   VirtualAddress:                0x0       
+0xDC       0x4   Size:                          0x0       
+[IMAGE_DIRECTORY_ENTRY_EXCEPTION]
+0xE0       0x0   VirtualAddress:                0x0       
+0xE4       0x4   Size:                          0x0       
+[IMAGE_DIRECTORY_ENTRY_SECURITY]
+0xE8       0x0   VirtualAddress:                0x0       
+0xEC       0x4   Size:                          0x0       
+[IMAGE_DIRECTORY_ENTRY_BASERELOC]
+0xF0       0x0   VirtualAddress:                0x0       
+0xF4       0x4   Size:                          0x0       
+[IMAGE_DIRECTORY_ENTRY_DEBUG]
+0xF8       0x0   VirtualAddress:                0x0       
+0xFC       0x4   Size:                          0x0       
+[IMAGE_DIRECTORY_ENTRY_COPYRIGHT]
+0x100      0x0   VirtualAddress:                0x0       
+0x104      0x4   Size:                          0x0       
+[IMAGE_DIRECTORY_ENTRY_GLOBALPTR]
+0x108      0x0   VirtualAddress:                0x0       
+0x10C      0x4   Size:                          0x0       
+[IMAGE_DIRECTORY_ENTRY_TLS]
+0x110      0x0   VirtualAddress:                0x0       
+0x114      0x4   Size:                          0x0       
+[IMAGE_DIRECTORY_ENTRY_LOAD_CONFIG]
+0x118      0x0   VirtualAddress:                0x0       
+0x11C      0x4   Size:                          0x0       
+[IMAGE_DIRECTORY_ENTRY_BOUND_IMPORT]
+0x120      0x0   VirtualAddress:                0x0       
+0x124      0x4   Size:                          0x0       
+[IMAGE_DIRECTORY_ENTRY_IAT]
+0x128      0x0   VirtualAddress:                0x0       
+0x12C      0x4   Size:                          0x0       
+[IMAGE_DIRECTORY_ENTRY_DELAY_IMPORT]
+0x130      0x0   VirtualAddress:                0x0       
+0x134      0x4   Size:                          0x0       
+[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR]
+0x138      0x0   VirtualAddress:                0x0       
+0x13C      0x4   Size:                          0x0       
+[IMAGE_DIRECTORY_ENTRY_RESERVED]
+0x140      0x0   VirtualAddress:                0x0       
+0x144      0x4   Size:                          0x0       
 
