@@ -2,9 +2,9 @@
 
 Byte 0x00 makes up 89.7135% of the file's contents. This may indicate truncation / malformation.
 
-Suspicious flags set for section 0. Both IMAGE_SCN_MEM_WRITE and IMAGE_SCN_MEM_EXECUTE are set. This might indicate a packed executable.
-
 Suspicious value found parsing section 2. VirtualAddress is beyond 0x10000000.
+
+Suspicious flags set for section 0. Both IMAGE_SCN_MEM_WRITE and IMAGE_SCN_MEM_EXECUTE are set. This might indicate a packed executable.
 
 ----------DOS_HEADER----------
 
