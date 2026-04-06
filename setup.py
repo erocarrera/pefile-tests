@@ -1,9 +1,8 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 # This file is part of Viper - https://github.com/viper-framework/viper
 # See the file 'LICENSE' for copying permission.
 
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(
     name='pefile-tests',
