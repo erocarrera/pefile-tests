@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # The MIT License (MIT)
 #
 # Copyright (c) 2004-2016 Ero Carrera
@@ -22,15 +20,13 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import os
 import difflib
-from hashlib import sha256
+import os
 import unittest
-
-from io import open
-import pytest
+from hashlib import sha256
 
 import pefile
+import pytest
 
 # do not truncate outputs
 pefile.MAX_SECTIONS = 128000
