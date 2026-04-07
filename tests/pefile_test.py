@@ -21,9 +21,9 @@
 # SOFTWARE.
 
 import difflib
-import os
 import unittest
 from hashlib import sha256
+from pathlib import Path, PurePath, walk
 
 import pefile
 import pytest
@@ -32,31 +32,30 @@ import pytest
 pefile.MAX_SECTIONS = 128000
 
 
-here = os.path.abspath(__file__)
-test_dir = os.path.dirname(here)
-REGRESSION_TESTS_DIR = os.path.join(test_dir, "data")
-POCS_TESTS_DIR = os.path.join(test_dir, "corkami/pocs")
-LIEF_TESTS_DIR = os.path.join(test_dir, "lief-samples-PE")
+test_dir = Path(__file__).resolve()
+REGRESSION_TESTS_DIR = test_dir / "data"
+POCS_TESTS_DIR = test_dir / "corkami/pocs"
+LIEF_TESTS_DIR = test_dir / "lief-samples-PE"
 
 
 def _load_test_files():
     """Yield all the test files"""
 
     not_pes = ".dmp", ".ABOUT", "empty_file",
-    for dirpath, _dirname, filenames in os.walk(REGRESSION_TESTS_DIR):
+    for dirpath, _dirname, filenames in walk(REGRESSION_TESTS_DIR):
         for filename in filenames:
             if not filename.endswith(not_pes):
-                yield os.path.join(dirpath, filename)
+                yield dirpath / filename
 
-    for dirpath, _dirname, filenames in os.walk(POCS_TESTS_DIR):
+    for dirpath, _dirname, filenames in walk(POCS_TESTS_DIR):
         for filename in filenames:
             if not filename.endswith(not_pes):
-                yield os.path.join(dirpath, filename)
+                yield dirpath / filename
 
-    for dirpath, _dirname, filenames in os.walk(LIEF_TESTS_DIR):
+    for dirpath, _dirname, filenames in walk(LIEF_TESTS_DIR):
         for filename in filenames:
             if not filename.endswith(not_pes):
-                yield os.path.join(dirpath, filename)
+                yield dirpath / filename
 
 
 @pytest.mark.parametrize(
@@ -89,7 +88,7 @@ def test_pe_image_regression_test(pe_filename, REGEN=False):
     lines_to_ignore = 0
 
     if control_data_hash != pe_file_data_hash:
-        print("\nHash differs for [%s]" % os.path.basename(pe_filename))
+        print("\nHash differs for [%s]" % PurePath(pe_filename).name)
 
         control_file_lines = [
             l for l in control_data.decode("utf-8").splitlines()
@@ -134,7 +133,7 @@ class Test_pefile(unittest.TestCase):
     def test_get_rich_header_hash(self):
         """Verify the RICH_HEADER hashes."""
 
-        control_file = os.path.join(REGRESSION_TESTS_DIR, "kernel32.dll")
+        control_file = REGRESSION_TESTS_DIR / "kernel32.dll"
         pe = pefile.PE(control_file)
 
         self.assertEqual(pe.get_rich_header_hash(), "53281e71643c43d225011202b32645d1")
@@ -161,7 +160,7 @@ class Test_pefile(unittest.TestCase):
         opposed to do a single pass.
         """
 
-        control_file = os.path.join(REGRESSION_TESTS_DIR, "MSVBVM60.DLL")
+        control_file = REGRESSION_TESTS_DIR / "MSVBVM60.DLL"
         pe = pefile.PE(control_file, fast_load=True)
         # Load the 16 directories.
         pe.parse_data_directories(directories=list(range(0x10)))
@@ -179,27 +178,25 @@ class Test_pefile(unittest.TestCase):
         """Test imphash values."""
 
         self.assertEqual(
-            pefile.PE(os.path.join(REGRESSION_TESTS_DIR, "mfc40.dll")).get_imphash(),
+            pefile.PE(REGRESSION_TESTS_DIR / "mfc40.dll").get_imphash(),
             "b0f969ff16372d95ef57f05aa8f69409",
         )
 
         self.assertEqual(
-            pefile.PE(os.path.join(REGRESSION_TESTS_DIR, "kernel32.dll")).get_imphash(),
+            pefile.PE(REGRESSION_TESTS_DIR / "kernel32.dll").get_imphash(),
             "437d147ea3f4a34fff9ac2110441696a",
         )
 
         self.assertEqual(
             pefile.PE(
-                os.path.join(
-                    REGRESSION_TESTS_DIR,
-                    "66c74e4c9dbd1d33b22f63cd0318b72dea88f9dbb4d36a3383d3da20b037d42e",
-                )
+                REGRESSION_TESTS_DIR / 
+                "66c74e4c9dbd1d33b22f63cd0318b72dea88f9dbb4d36a3383d3da20b037d42e"
             ).get_imphash(),
             "a781de574e0567285ee1233bf6a57cc0",
         )
 
         self.assertEqual(
-            pefile.PE(os.path.join(REGRESSION_TESTS_DIR, "cmd.exe")).get_imphash(),
+            pefile.PE(REGRESSION_TESTS_DIR / "cmd.exe").get_imphash(),
             "d0058544e4588b1b2290b7f4d830eb0a",
         )
 
@@ -207,7 +204,7 @@ class Test_pefile(unittest.TestCase):
         """Verify correct field data modification."""
 
         # Test version information writing
-        control_file = os.path.join(REGRESSION_TESTS_DIR, "MSVBVM60.DLL")
+        control_file = REGRESSION_TESTS_DIR / "MSVBVM60.DLL"
         pe = pefile.PE(control_file, fast_load=True)
         pe.parse_data_directories(
             directories=[pefile.DIRECTORY_ENTRY["IMAGE_DIRECTORY_ENTRY_RESOURCE"]]
@@ -247,7 +244,7 @@ class Test_pefile(unittest.TestCase):
         """pefile should fail parsing invalid data (missing NT headers)"""
 
         # Take a known good file.
-        control_file = os.path.join(REGRESSION_TESTS_DIR, "MSVBVM60.DLL")
+        control_file = REGRESSION_TESTS_DIR / "MSVBVM60.DLL"
         pe = pefile.PE(control_file, fast_load=True)
 
         # Truncate it at the PE header and add invalid data.
@@ -284,14 +281,14 @@ class Test_pefile(unittest.TestCase):
         """pefile should fail parsing empty files."""
 
         # Take a known good file
-        control_file = os.path.join(REGRESSION_TESTS_DIR, "empty_file")
+        control_file = REGRESSION_TESTS_DIR / "empty_file"
         self.assertRaises(pefile.PEFormatError, pefile.PE, control_file)
 
     def test_relocated_memory_mapped_image(self):
         """Test different rebasing methods produce the same image"""
 
         # Take a known good file
-        control_file = os.path.join(REGRESSION_TESTS_DIR, "MSVBVM60.DLL")
+        control_file = REGRESSION_TESTS_DIR / "MSVBVM60.DLL"
         pe = pefile.PE(control_file)
 
         def count_differences(data1, data2):
@@ -321,8 +318,8 @@ class Test_pefile(unittest.TestCase):
 
         # This file used to crash pefile when attempting to relocate it:
         # https://github.com/erocarrera/pefile/issues/314
-        control_file = os.path.join(
-            REGRESSION_TESTS_DIR, "pefile-314/crash-8499a0bb33aeba8f59a172584abc7ca0ab82a78c"
+        control_file = (
+            REGRESSION_TESTS_DIR / "pefile-314/crash-8499a0bb33aeba8f59a172584abc7ca0ab82a78c"
         )
         pe = pefile.PE(control_file)
 
@@ -330,7 +327,7 @@ class Test_pefile(unittest.TestCase):
         """Verify correct calculation of checksum"""
 
         # Take a known good file.
-        control_file = os.path.join(REGRESSION_TESTS_DIR, "MSVBVM60.DLL")
+        control_file = REGRESSION_TESTS_DIR / "MSVBVM60.DLL"
         pe = pefile.PE(control_file)
 
         # verify_checksum() generates a checksum from the image's data and
