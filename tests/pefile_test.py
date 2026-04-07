@@ -98,7 +98,7 @@ def test_pe_image_regression_test(pe_filename, REGEN=False):
 
         diff = difflib.ndiff(control_file_lines, pefile_lines)
 
-        # check the diff
+        # Check the diff
         for line in diff:
             # Count all changed lines
             if line.startswith("+ "):
@@ -166,10 +166,10 @@ class Test_pefile(unittest.TestCase):
         # Load the 16 directories.
         pe.parse_data_directories(directories=list(range(0x10)))
 
-        # Do it all at once.
+        # Do it all at once
         pe_full = pefile.PE(control_file, fast_load=False)
 
-        # Verify both methods obtained the same results.
+        # Verify both methods obtained the same results
         self.assertEqual(pe_full.dump_info(), pe.dump_info())
 
         pe.close()
@@ -236,7 +236,6 @@ class Test_pefile(unittest.TestCase):
                     differences.append(chr(new_data[idx]))
 
         # Verify all modifications in the file were the ones we just made
-        #
         self.assertEqual(
             "".join(differences).encode("utf-8", "backslashreplace"), str1 + str2 + str3
         )
@@ -246,11 +245,11 @@ class Test_pefile(unittest.TestCase):
     def test_nt_headers_exception(self):
         """pefile should fail parsing invalid data (missing NT headers)"""
 
-        # Take a known good file.
+        # Take a known good file
         control_file = os.path.join(REGRESSION_TESTS_DIR, "MSVBVM60.DLL")
         pe = pefile.PE(control_file, fast_load=True)
 
-        # Truncate it at the PE header and add invalid data.
+        # Truncate it at the PE header and add invalid data
         pe_header_offest = pe.DOS_HEADER.e_lfanew
         corrupted_data = pe.__data__[:pe_header_offest] + b"\0" * (1024 * 10)
 
@@ -261,11 +260,11 @@ class Test_pefile(unittest.TestCase):
         (missing DOS header).
         """
 
-        # Generate 10KiB of zeroes
+        # Generate 10 KiB of zeroes
         data = b"\0" * (1024 * 10)
 
         # Attempt to parse data and verify PE header, a PEFormatError exception
-        # is thrown.
+        # is thrown
         self.assertRaises(pefile.PEFormatError, pefile.PE, data=data)
 
     def test_dos_header_exception_small_data(self):
@@ -277,7 +276,7 @@ class Test_pefile(unittest.TestCase):
         data = b"\0" * (64)
 
         # Attempt to parse data and verify PE header a PEFormatError exception
-        # is thrown.
+        # is thrown
         self.assertRaises(pefile.PEFormatError, pefile.PE, data=data)
 
     def test_empty_file_exception(self):
@@ -329,10 +328,9 @@ class Test_pefile(unittest.TestCase):
     def test_checksum(self):
         """Verify correct calculation of checksum"""
 
-        # Take a known good file.
+        # Take a known good file
         control_file = os.path.join(REGRESSION_TESTS_DIR, "MSVBVM60.DLL")
         pe = pefile.PE(control_file)
 
-        # verify_checksum() generates a checksum from the image's data and
-        # compares it against the checksum field in the optional header.
+        # Ensure the image's data checksum equals that in the optional header
         self.assertEqual(pe.verify_checksum(), True)
