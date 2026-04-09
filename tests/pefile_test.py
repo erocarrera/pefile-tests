@@ -43,17 +43,17 @@ def _load_test_files():
     """Yield all the test files"""
 
     not_pes = ".dmp", ".ABOUT", "empty_file",
-    for dirpath, _dirname, filenames in os.walk(REGRESSION_TESTS_DIR):
+    for dirpath, _, filenames in os.walk(REGRESSION_TESTS_DIR):
         for filename in filenames:
             if not filename.endswith(not_pes):
                 yield os.path.join(dirpath, filename)
 
-    for dirpath, _dirname, filenames in os.walk(POCS_TESTS_DIR):
+    for dirpath, _, filenames in os.walk(POCS_TESTS_DIR):
         for filename in filenames:
             if not filename.endswith(not_pes):
                 yield os.path.join(dirpath, filename)
 
-    for dirpath, _dirname, filenames in os.walk(LIEF_TESTS_DIR):
+    for dirpath, _, filenames in os.walk(LIEF_TESTS_DIR):
         for filename in filenames:
             if not filename.endswith(not_pes):
                 yield os.path.join(dirpath, filename)
