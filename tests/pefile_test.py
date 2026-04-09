@@ -121,7 +121,7 @@ def test_pe_image_regression_test(pe_filename, REGEN=False):
             and lines_to_ignore
             == diff_lines_removed_count + diff_lines_added_count
         ):
-            print("Differences are in TimeDateStamp formatting, " "ignoring...")
+            print("Differences are in TimeDateStamp formatting, ignoring...")
 
         else:
             assert pe_file_data == control_data.decode("utf-8")
