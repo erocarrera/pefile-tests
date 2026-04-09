@@ -42,17 +42,17 @@ def _load_test_files():
     """Yield all the test files"""
 
     not_pes = ".dmp", ".ABOUT", "empty_file",
-    for dirpath, _dirname, filenames in walk(REGRESSION_TESTS_DIR):
+    for dirpath, _, filenames in walk(REGRESSION_TESTS_DIR):
         for filename in filenames:
             if not filename.endswith(not_pes):
                 yield dirpath / filename
 
-    for dirpath, _dirname, filenames in walk(POCS_TESTS_DIR):
+    for dirpath, _, filenames in walk(POCS_TESTS_DIR):
         for filename in filenames:
             if not filename.endswith(not_pes):
                 yield dirpath / filename
 
-    for dirpath, _dirname, filenames in walk(LIEF_TESTS_DIR):
+    for dirpath, _, filenames in walk(LIEF_TESTS_DIR):
         for filename in filenames:
             if not filename.endswith(not_pes):
                 yield dirpath / filename
@@ -88,16 +88,14 @@ def test_pe_image_regression_test(pe_filename, REGEN=False):
     lines_to_ignore = 0
 
     if control_data_hash != pe_file_data_hash:
-        print("\nHash differs for [%s]" % PurePath(pe_filename).name)
+        print(f"\nHash differs for [{os.path.basename(pe_filename)}]")
 
-        control_file_lines = [
-            l for l in control_data.decode("utf-8").splitlines()
-        ]
+        control_file_lines = list(control_data.decode("utf-8").splitlines())
         pefile_lines = pe_file_data.splitlines()
 
         diff = difflib.ndiff(control_file_lines, pefile_lines)
 
-        # check the diff
+        # Check the diff
         for line in diff:
             # Count all changed lines
             if line.startswith("+ "):
@@ -120,7 +118,7 @@ def test_pe_image_regression_test(pe_filename, REGEN=False):
             and lines_to_ignore
             == diff_lines_removed_count + diff_lines_added_count
         ):
-            print("Differences are in TimeDateStamp formatting, " "ignoring...")
+            print("Differences are in TimeDateStamp formatting, ignoring...")
 
         else:
             assert pe_file_data == control_data.decode("utf-8")
@@ -165,10 +163,10 @@ class Test_pefile(unittest.TestCase):
         # Load the 16 directories.
         pe.parse_data_directories(directories=list(range(0x10)))
 
-        # Do it all at once.
+        # Do it all at once
         pe_full = pefile.PE(control_file, fast_load=False)
 
-        # Verify both methods obtained the same results.
+        # Verify both methods obtained the same results
         self.assertEqual(pe_full.dump_info(), pe.dump_info())
 
         pe.close()
@@ -233,7 +231,6 @@ class Test_pefile(unittest.TestCase):
                     differences.append(chr(new_data[idx]))
 
         # Verify all modifications in the file were the ones we just made
-        #
         self.assertEqual(
             "".join(differences).encode("utf-8", "backslashreplace"), str1 + str2 + str3
         )
@@ -247,7 +244,7 @@ class Test_pefile(unittest.TestCase):
         control_file = REGRESSION_TESTS_DIR / "MSVBVM60.DLL"
         pe = pefile.PE(control_file, fast_load=True)
 
-        # Truncate it at the PE header and add invalid data.
+        # Truncate it at the PE header and add invalid data
         pe_header_offest = pe.DOS_HEADER.e_lfanew
         corrupted_data = pe.__data__[:pe_header_offest] + b"\0" * (1024 * 10)
 
@@ -258,11 +255,11 @@ class Test_pefile(unittest.TestCase):
         (missing DOS header).
         """
 
-        # Generate 10KiB of zeroes
+        # Generate 10 KiB of zeroes
         data = b"\0" * (1024 * 10)
 
         # Attempt to parse data and verify PE header, a PEFormatError exception
-        # is thrown.
+        # is thrown
         self.assertRaises(pefile.PEFormatError, pefile.PE, data=data)
 
     def test_dos_header_exception_small_data(self):
@@ -274,7 +271,7 @@ class Test_pefile(unittest.TestCase):
         data = b"\0" * (64)
 
         # Attempt to parse data and verify PE header a PEFormatError exception
-        # is thrown.
+        # is thrown
         self.assertRaises(pefile.PEFormatError, pefile.PE, data=data)
 
     def test_empty_file_exception(self):
@@ -326,10 +323,9 @@ class Test_pefile(unittest.TestCase):
     def test_checksum(self):
         """Verify correct calculation of checksum"""
 
-        # Take a known good file.
+        # Take a known good file
         control_file = REGRESSION_TESTS_DIR / "MSVBVM60.DLL"
         pe = pefile.PE(control_file)
 
-        # verify_checksum() generates a checksum from the image's data and
-        # compares it against the checksum field in the optional header.
+        # Ensure the image's data checksum equals that in the optional header
         self.assertEqual(pe.verify_checksum(), True)
