@@ -73,13 +73,13 @@ jobs:
             core.info(`pefile_test_changed=${changed}`);
 
       - name: Install pefile from source tarball for deeper check
-        if: steps.changed-file.outputs.pefile_test_changed == 'true'
+        if: steps.changed-file.outputs.pefile_test_changed == 'true' || github.event_name == 'workflow_dispatch'
         run: |
           python -m pip install --upgrade pip
           pip install pytest
           pip install "https://github.com/erocarrera/pefile/archive/refs/heads/master.tar.gz"
 
       - name: Deeper import/valid syntax check if pefile_test.py changed
-        if: steps.changed-file.outputs.pefile_test_changed == 'true'
+        if: steps.changed-file.outputs.pefile_test_changed == 'true' || github.event_name == 'workflow_dispatch'
         run: python tests/pefile_test.py
 
