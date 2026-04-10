@@ -21,6 +21,7 @@
 # SOFTWARE.
 
 import difflib
+import os
 import sys
 import unittest
 from hashlib import sha256
