@@ -35,7 +35,7 @@ import pytest
 pefile.MAX_SECTIONS = 128000
 
 
-test_dir = Path(__file__).resolve()
+test_dir = Path(__file__).resolve().parent
 REGRESSION_TESTS_DIR = test_dir / "data"
 POCS_TESTS_DIR = test_dir / "corkami/pocs"
 LIEF_TESTS_DIR = test_dir / "lief-samples-PE"
