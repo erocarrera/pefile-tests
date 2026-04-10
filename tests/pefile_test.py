@@ -41,20 +41,20 @@ LIEF_TESTS_DIR = test_dir / "lief-samples-PE"
 def _load_test_files():
     """Yield all the test files"""
 
-    not_pes = ".dmp", ".ABOUT", "empty_file",
+    not_pe = ".dmp", ".ABOUT", "empty_file",
     for dirpath, _, filenames in walk(REGRESSION_TESTS_DIR):
         for filename in filenames:
-            if not filename.endswith(not_pes):
+            if not filename.endswith(not_pe):
                 yield dirpath / filename
 
     for dirpath, _, filenames in walk(POCS_TESTS_DIR):
         for filename in filenames:
-            if not filename.endswith(not_pes):
+            if not filename.endswith(not_pe):
                 yield dirpath / filename
 
     for dirpath, _, filenames in walk(LIEF_TESTS_DIR):
         for filename in filenames:
-            if not filename.endswith(not_pes):
+            if not filename.endswith(not_pe):
                 yield dirpath / filename
 
 
@@ -62,7 +62,7 @@ def _load_test_files():
     "pe_filename",
     list(_load_test_files()),
 )
-def test_pe_image_regression_test(pe_filename, REGEN=False):
+def test_pe_image_regression_test(pe_filename, regen=False):
     pe = pefile.PE(pe_filename)
     pe_file_data = pe.dump_info()
     pe.dump_dict()  # Make sure that it does not fail
@@ -70,7 +70,7 @@ def test_pe_image_regression_test(pe_filename, REGEN=False):
 
     control_data_filename = f"{pe_filename}.dmp"
 
-    if REGEN:
+    if regen:
         with open(control_data_filename, "wb") as control_data_f:
             control_data_f.write(pe_file_data.encode("utf-8", "backslashreplace"))
         return
@@ -124,7 +124,7 @@ def test_pe_image_regression_test(pe_filename, REGEN=False):
             assert pe_file_data == control_data.decode("utf-8")
 
 
-class Test_pefile(unittest.TestCase):
+class TestPEFile(unittest.TestCase):
 
     maxDiff = None
 
@@ -134,23 +134,32 @@ class Test_pefile(unittest.TestCase):
         control_file = REGRESSION_TESTS_DIR / "kernel32.dll"
         pe = pefile.PE(control_file)
 
-        self.assertEqual(pe.get_rich_header_hash(), "53281e71643c43d225011202b32645d1")
         self.assertEqual(
-            pe.get_rich_header_hash("md5"), "53281e71643c43d225011202b32645d1"
+            pe.get_rich_header_hash(),
+            "53281e71643c43d225011202b32645d1"
         )
+
+        self.assertEqual(
+            pe.get_rich_header_hash("md5"),
+            "53281e71643c43d225011202b32645d1"
+        )
+
         self.assertEqual(
             pe.get_rich_header_hash(algorithm="sha1"),
             "eb7981fdc928971ba400eea3db63ff9e5ec216b1",
         )
+
         self.assertEqual(
             pe.get_rich_header_hash(algorithm="sha256"),
             "5098ea0fb22f6a21b2806b3cc37d626c2e27593835e44967894636caad49e2d5",
         )
+
         self.assertEqual(
             pe.get_rich_header_hash(algorithm="sha512"),
             "86044cd48106affa55f4ecf7e1a3c29ecb69fd147085987a2ca1b44aabb8e704"
             "0059570db34b87f56a8359c1847fd3dd406fcf1d0a53fd1981fe519f1b1ede80",
         )
+
         self.assertRaises(Exception, pe.get_rich_header_hash, algorithm="badalgo")
 
     def test_selective_loading_integrity(self):
@@ -220,11 +229,9 @@ class Test_pefile(unittest.TestCase):
 
         new_data = pe.write()
 
-        diff, differences = 0, list()
+        differences = []
         for idx in range(len(original_data)):
             if original_data[idx] != new_data[idx]:
-
-                diff += 1
                 # Skip the zeroes that pefile automatically adds to pad a new,
                 # shorter string, into the space occupied by a longer one.
                 if new_data[idx] != 0:
@@ -268,7 +275,7 @@ class Test_pefile(unittest.TestCase):
         """
 
         # Generate 64 bytes of zeroes
-        data = b"\0" * (64)
+        data = b"\0" * 64
 
         # Attempt to parse data and verify PE header a PEFormatError exception
         # is thrown
@@ -328,4 +335,4 @@ class Test_pefile(unittest.TestCase):
         pe = pefile.PE(control_file)
 
         # Ensure the image's data checksum equals that in the optional header
-        self.assertEqual(pe.verify_checksum(), True)
+        self.assertTrue(pe.verify_checksum())
