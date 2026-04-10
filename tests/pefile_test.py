@@ -21,9 +21,15 @@
 # SOFTWARE.
 
 import difflib
+import sys
 import unittest
 from hashlib import sha256
-from pathlib import Path, PurePath, walk
+from pathlib import Path, PurePath
+
+if sys.version_info >= (3, 12):
+    walk = Path.walk
+else:
+    from os import walk
 
 import pefile
 import pytest
