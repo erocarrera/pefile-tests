@@ -21,9 +21,12 @@
 # SOFTWARE.
 
 import difflib
+import os
+import sys
 import unittest
 from hashlib import sha256
-from pathlib import Path, PurePath, walk
+from pathlib import Path, PurePath
+from typing import Iterable, Tuple, List
 
 import pefile
 import pytest
@@ -37,22 +40,33 @@ REGRESSION_TESTS_DIR = test_dir / "data"
 POCS_TESTS_DIR = test_dir / "corkami/pocs"
 LIEF_TESTS_DIR = test_dir / "lief-samples-PE"
 
+if sys.version_info >= (3, 12):
+    def unified_walk(top: str | Path, **kwargs) -> Iterable[Tuple[Path, List[str], List[str]]]:
+        """Uses the native Path.walk available in Python 3.12+."""
+        # Path.walk yields (root_path_object, dirnames, filenames)
+        return Path(top).walk(**kwargs)
+else:
+    def unified_walk(top: str | Path, **kwargs) -> Iterable[Tuple[Path, List[str], List[str]]]:
+        """Fallback for Python < 3.12 using os.walk."""
+        # os.walk yields (root_string, dirnames, filenames)
+        for root, dirs, files in os.walk(top, **kwargs):
+            yield Path(root), dirs, files
 
 def _load_test_files():
     """Yield all the test files"""
 
     not_pes = ".dmp", ".ABOUT", "empty_file",
-    for dirpath, _, filenames in walk(REGRESSION_TESTS_DIR):
+    for dirpath, _, filenames in unified_walk(REGRESSION_TESTS_DIR):
         for filename in filenames:
             if not filename.endswith(not_pes):
                 yield dirpath / filename
 
-    for dirpath, _, filenames in walk(POCS_TESTS_DIR):
+    for dirpath, _, filenames in unified_walk(POCS_TESTS_DIR):
         for filename in filenames:
             if not filename.endswith(not_pes):
                 yield dirpath / filename
 
-    for dirpath, _, filenames in walk(LIEF_TESTS_DIR):
+    for dirpath, _, filenames in unified_walk(LIEF_TESTS_DIR):
         for filename in filenames:
             if not filename.endswith(not_pes):
                 yield dirpath / filename
