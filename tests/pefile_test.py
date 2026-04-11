@@ -21,9 +21,12 @@
 # SOFTWARE.
 
 import difflib
+import os
+import sys
 import unittest
 from hashlib import sha256
-from pathlib import Path, PurePath, walk
+from pathlib import Path, PurePath
+from typing import Iterable, Tuple, List
 
 import pefile
 import pytest
@@ -32,27 +35,39 @@ import pytest
 pefile.MAX_SECTIONS = 128000
 
 
-test_dir = Path(__file__).resolve()
+test_dir = Path(__file__).resolve().parent
 REGRESSION_TESTS_DIR = test_dir / "data"
 POCS_TESTS_DIR = test_dir / "corkami/pocs"
 LIEF_TESTS_DIR = test_dir / "lief-samples-PE"
 
+if sys.version_info >= (3, 12):
+    def unified_walk(top: str | Path, **kwargs) -> Iterable[Tuple[Path, List[str], List[str]]]:
+        """Uses the native Path.walk available in Python 3.12+."""
+        # Path.walk yields (root_path_object, dirnames, filenames)
+        return Path(top).walk(**kwargs)
+else:
+    def unified_walk(top: str | Path, **kwargs) -> Iterable[Tuple[Path, List[str], List[str]]]:
+        """Fallback for Python < 3.12 using os.walk."""
+        # os.walk yields (root_string, dirnames, filenames)
+        for root, dirs, files in os.walk(top, **kwargs):
+            yield Path(root), dirs, files
 
 def _load_test_files():
     """Yield all the test files"""
 
-    not_pe = ".dmp", ".ABOUT", "empty_file",
-    for dirpath, _, filenames in walk(REGRESSION_TESTS_DIR):
+    not_pe = (".dmp", ".ABOUT", "empty_file")
+
+    for dirpath, _, filenames in unified_walk(REGRESSION_TESTS_DIR):
         for filename in filenames:
             if not filename.endswith(not_pe):
                 yield dirpath / filename
 
-    for dirpath, _, filenames in walk(POCS_TESTS_DIR):
+    for dirpath, _, filenames in unified_walk(POCS_TESTS_DIR):
         for filename in filenames:
             if not filename.endswith(not_pe):
                 yield dirpath / filename
 
-    for dirpath, _, filenames in walk(LIEF_TESTS_DIR):
+    for dirpath, _, filenames in unified_walk(LIEF_TESTS_DIR):
         for filename in filenames:
             if not filename.endswith(not_pe):
                 yield dirpath / filename
@@ -88,7 +103,7 @@ def test_pe_image_regression_test(pe_filename, regen=False):
     lines_to_ignore = 0
 
     if control_data_hash != pe_file_data_hash:
-        print(f"\nHash differs for [{PurePath.name(pe_filename)}]")
+        print(f"\nHash differs for [{PurePath(pe_filename).name}]")
 
         control_file_lines = list(control_data.decode("utf-8").splitlines())
         pefile_lines = pe_file_data.splitlines()
