@@ -55,7 +55,7 @@ else:
 def _load_test_files():
     """Yield all the test files"""
 
-    not_pe = (".dmp", ".ABOUT", "empty_file")
+    not_pe_extensions = (".dmp", ".ABOUT", "empty_file")
 
     for dirpath, _, filenames in unified_walk(REGRESSION_TESTS_DIR):
         for filename in filenames:
