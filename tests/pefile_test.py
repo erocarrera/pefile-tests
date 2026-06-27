@@ -77,7 +77,7 @@ def _load_test_files():
     "pe_filename",
     list(_load_test_files()),
 )
-def test_pe_image_regression_test(pe_filename, regen=False):
+def test_pe_image_regression_test(pe_filename, REGEN=False):
     pe = pefile.PE(pe_filename)
     pe_file_data = pe.dump_info()
     pe.dump_dict()  # Make sure that it does not fail
@@ -85,7 +85,7 @@ def test_pe_image_regression_test(pe_filename, regen=False):
 
     control_data_filename = f"{pe_filename}.dmp"
 
-    if regen:
+    if REGEN:
         with open(control_data_filename, "wb") as control_data_f:
             control_data_f.write(pe_file_data.encode("utf-8", "backslashreplace"))
         return
