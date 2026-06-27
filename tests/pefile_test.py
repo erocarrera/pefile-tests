@@ -59,17 +59,17 @@ def _load_test_files():
 
     for dirpath, _, filenames in unified_walk(REGRESSION_TESTS_DIR):
         for filename in filenames:
-            if not filename.endswith(not_pe):
+            if not filename.endswith(not_pe_extensions):
                 yield dirpath / filename
 
     for dirpath, _, filenames in unified_walk(POCS_TESTS_DIR):
         for filename in filenames:
-            if not filename.endswith(not_pe):
+            if not filename.endswith(not_pe_extensions):
                 yield dirpath / filename
 
     for dirpath, _, filenames in unified_walk(LIEF_TESTS_DIR):
         for filename in filenames:
-            if not filename.endswith(not_pe):
+            if not filename.endswith(not_pe_extensions):
                 yield dirpath / filename
 
 
