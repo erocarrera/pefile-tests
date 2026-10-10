@@ -236,17 +236,17 @@ class TestPEFile(unittest.TestCase):
         #    "ce0e98011116b41414acebc1e8c411c9",
         #)
 
-        #self.assertEqual(
-        #    pefile.PE(
-        #        REGRESSION_TESTS_DIR / "66c74e4c9dbd1d33b22f63cd0318b72dea88f9dbb4d36a3383d3da20b037d42e"
-        #    ).get_exphash(),
-        #    "1f00d8a63daedf9970feb050bad38030",
-        #)
+        self.assertEqual(
+            pefile.PE(
+                REGRESSION_TESTS_DIR / "66c74e4c9dbd1d33b22f63cd0318b72dea88f9dbb4d36a3383d3da20b037d42e"
+            ).get_exphash(),
+            "1f00d8a63daedf9970feb050bad38030",
+        )
 
-        #self.assertEqual(
-        #    pefile.PE(REGRESSION_TESTS_DIR / "64bit_Binaries/cmd.exe").get_exphash(),
-        #    "",
-        #)
+        self.assertEqual(
+            pefile.PE(REGRESSION_TESTS_DIR / "data/cmd.exe").get_exphash(),
+            "",
+        )
 
     def test_write_header_fields(self):
         """Verify correct field data modification."""
