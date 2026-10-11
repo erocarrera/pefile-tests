@@ -244,7 +244,7 @@ class TestPEFile(unittest.TestCase):
         )
 
         self.assertEqual(
-            pefile.PE(REGRESSION_TESTS_DIR / "data/cmd.exe").get_exphash(),
+            pefile.PE(REGRESSION_TESTS_DIR / "cmd.exe").get_exphash(),
             "",
         )
 
